@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalong="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.8">
+  <id>com.bitmasq.hx413</id>
+  <name>Final Project</name>
+  <filename>Shoot Em Up</filename>
+  <versionNumber>15.03.08</versionNumber>
+  <initialWindow>
+    <content>Game.swf</content>
+    <renderMode>direct</renderMode>
+    <autoOrients>false</autoOrients>
+    <aspectRatio>landscape</aspectRatio>
+  </initialWindow>
+</application>
