@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalong="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.8">
+  <id>com.bitmasq.hx413</id>
+  <name>Final Project</name>
+  <filename>Shoot Em Up</filename>
+  <versionNumber>15.04.12</versionNumber>
+  <initialWindow>
+    <content>Game.swf</content>
+	<visible>true</visible>
+    <renderMode>direct</renderMode>
+    <autoOrients>false</autoOrients>
+    <aspectRatio>landscape</aspectRatio>
+  </initialWindow>
+  <icon>
+	  <image732x412>ouya_icon.png</image732x412>
+  </icon>
+  
+  <android>
+	  <manifestAdditions><![CDATA[
+	  <manifest android:installLocation="auto">
+		  <uses-permission android:name="android.permission.INTERNET"/>
+		  <application>
+			  <activity>
+				  <intent-filters>
+					  <action android:name="android.intent.action.MAIN" />
+					  <category android:name="android.intent.category.LAUNCHER" />
+					  <category android:name="android.category.GAME" />
+				  </intent-filters>
+			  </activity>
+		  </application>
+	  </manifest>
+	  ]]></manifestAdditions>
+  </android>
+</application>

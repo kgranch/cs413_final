@@ -1,0 +1,65 @@
+FLEX_SDK = C:/Flex_sdk
+## ANDROID_SDK = C:/Android-sdk
+
+## SIGN_CERT = sign.pfx
+## SIGN_PWD = abc123
+SWF_VERSION = 11.8
+## ADT = $(FLEX_SDK)/bin/adt
+
+
+ADL = $(FLEX_SDK)/bin/adl.exe
+AMXMLC = $(FLEX_SDK)/bin/amxmlc
+SOURCES = src/*.hx assets/*.png
+APP = Game
+APP_XML = $(APP).xml
+GAME = $(APP).swf
+GAME_WEB = $(APP)Web.swf
+GAME_APK = $(APP).apk
+
+all: $(GAME) $(GAME_WEB)
+
+apk: $(GAME_APK)
+
+clean:
+	rm -rf $(GAME) $(GAME_WEB) $(GAME_APK)
+	
+test: $(GAME)
+	$(ADL) -profile tv -screensize 640x360:640x360 $(APP_XML)
+	
+testHi: $(GAME)
+	$(ADL) -profile tv -screensize 1280x720:1280x720 $(APP_XML)
+
+sign.pfx:
+	$(ADT) -certificate -validityPeriod 25 -cn SelfSigned 1024-RSA $(SIGN_CERT) $(SIGN_PWD)
+
+install: $(GAME_APK)
+	$(ADT) -installApp -platform android -platformsdk $(ANDROID_SDK) -package $(GAME_APK)
+
+$(GAME_WEB): $(SOURCES)
+	haxe \
+	-cp src \
+	-cp vendor \
+	-swf-header 1280:720:60:ffffff \
+	-swf-version $(SWF_VERSION) \
+	-main GameLoader \
+	-swf $(GAME_WEB) \
+	-resource assets/levelone.tmx@levelone \
+	-swf-lib vendor/starling_1_6.swc \
+	--macro "patchTypes('vendor/starling.patch')" \
+
+$(GAME): $(SOURCES)
+	haxe \
+	-cp src \
+	-cp vendor \
+	-swf-header 1280:720:60:ffffff \
+	-swf-version $(SWF_VERSION) \
+	-main GameLoader \
+	-lib air3 \
+	-swf $(GAME) \
+	-resource assets/levelone.tmx@levelone \
+	-swf-lib vendor/starling_1_6.swc \
+	--macro "patchTypes('vendor/starling.patch')" \
+
+$(GAME_APK): $(GAME) sign.px
+	$(ADT) -package -target apk-captive-runtime -storetype pkcs12 -keystore $(SIGN_CERT) $(APP).\
+	apk $(APP_XML) $(GAME) assets ouya_icon.png
