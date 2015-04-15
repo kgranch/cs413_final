@@ -48,6 +48,7 @@ class GameDriver extends Sprite {
 	var creditsScreen:Image;
 	var tutorialScreen:Image;
 	var gameScreen:Image;
+	var playerSprite:Image;
 	
 	/** Constructor */
 	public function new() {
@@ -81,6 +82,9 @@ class GameDriver extends Sprite {
 		assets.enqueue("assets/creditsFont01.png");
 		assets.enqueue("assets/tutorialFont01.fnt");
 		assets.enqueue("assets/tutorialFont01.png");
+		
+		// game sprites
+		assets.enqueue("assets/tempplayer.png");
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -144,6 +148,10 @@ class GameDriver extends Sprite {
 		// Set and add mainMenu button
 		mainMenuButton = installMainMenuButton(15, 15);
 		addChild(mainMenuButton);
+		
+		//Add player sprite
+		playerSprite = new Image(GameDriver.assets.getTexture("tempplayer"));
+		addChild(playerSprite);
 			
 		return;
 	}
