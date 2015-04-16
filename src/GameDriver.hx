@@ -158,8 +158,8 @@ class GameDriver extends Sprite {
 		hero = new Character(1, atlas.getTextures("spaceship_front"), this);
 		hero.setHealthBar(GameDriver.assets.getTexture("health_bar0001"));
 		hero.makeStand();
-		hero.x = 20;
-		hero.y = 300;
+		hero.x = 535;
+		hero.y = 450;
         addChild(hero);
 			
 		return;

@@ -40,8 +40,8 @@ class Character extends MovieClipPlus {
 
 	/** Create and return game hero */
 	public function initializeHero() {
-		this.scaleX = .30;
-		this.scaleY = .30;
+		this.scaleX = .25;
+		this.scaleY = .25;
 		
 		Starling.juggler.add(this);
         this.stop();
