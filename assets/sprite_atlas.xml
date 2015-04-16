@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:9f1be3492185685dc6f0da3b2c78c9ef:f185bb0d6264a0a963cd590a96c62fe9:7d4d4c5ad445888e050228e156dc3d5e$ -->
+<TextureAtlas imagePath="sprite_atlas.png">
+    <SubTexture name="health_bar0001" x="2" y="1068" width="200" height="40"/>
+    <SubTexture name="spaceship_front0001" x="2" y="2" width="580" height="531" frameX="-5" frameY="0" frameWidth="600" frameHeight="536"/>
+    <SubTexture name="spaceship_reverse0001" x="584" y="2" width="580" height="531" frameX="-5" frameY="0" frameWidth="600" frameHeight="536"/>
+    <SubTexture name="spaceship_reverse_left0001" x="2" y="535" width="580" height="531" frameX="-5" frameY="0" frameWidth="600" frameHeight="536"/>
+    <SubTexture name="spaceship_reverse_right0001" x="584" y="535" width="580" height="531" frameX="-5" frameY="0" frameWidth="600" frameHeight="536"/>
+</TextureAtlas>

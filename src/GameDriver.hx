@@ -25,6 +25,7 @@ import flash.geom.Rectangle;
 
 import MovieClipPlus;
 import Tilemap;
+import Character;
 
 class GameDriver extends Sprite {
 	// Global assets manager
@@ -48,7 +49,9 @@ class GameDriver extends Sprite {
 	var creditsScreen:Image;
 	var tutorialScreen:Image;
 	var gameScreen:Image;
-	var playerSprite:Image;
+	
+	// Game Characters
+	var hero:Character;
 	
 	/** Constructor */
 	public function new() {
@@ -83,8 +86,9 @@ class GameDriver extends Sprite {
 		assets.enqueue("assets/tutorialFont01.fnt");
 		assets.enqueue("assets/tutorialFont01.png");
 		
-		// game sprites
-		assets.enqueue("assets/tempplayer.png");
+		// game sprite atlas
+		assets.enqueue("assets/sprite_atlas.xml");
+		assets.enqueue("assets/sprite_atlas.png");
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -149,9 +153,14 @@ class GameDriver extends Sprite {
 		mainMenuButton = installMainMenuButton(15, 15);
 		addChild(mainMenuButton);
 		
-		//Add player sprite
-		playerSprite = new Image(GameDriver.assets.getTexture("tempplayer"));
-		addChild(playerSprite);
+		// Set and add game hero character
+		var atlas = GameDriver.assets.getTextureAtlas("sprite_atlas");
+		hero = new Character(1, atlas.getTextures("spaceship_front"), this);
+		hero.setHealthBar(GameDriver.assets.getTexture("health_bar0001"));
+		hero.makeStand();
+		hero.x = 20;
+		hero.y = 300;
+        addChild(hero);
 			
 		return;
 	}
