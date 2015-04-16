@@ -26,6 +26,7 @@ import flash.geom.Rectangle;
 import MovieClipPlus;
 import Tilemap;
 import Character;
+import MotionEngine;
 
 class GameDriver extends Sprite {
 	// Global assets manager
@@ -52,6 +53,7 @@ class GameDriver extends Sprite {
 	
 	// Game Characters
 	var hero:Character;
+	var engine:MotionEngine;
 	
 	/** Constructor */
 	public function new() {
@@ -161,6 +163,8 @@ class GameDriver extends Sprite {
 		hero.x = 535;
 		hero.y = 450;
         addChild(hero);
+        engine = new MotionEngine(hero);
+
 			
 		return;
 	}
