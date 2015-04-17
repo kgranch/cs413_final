@@ -1,4 +1,6 @@
 import starling.core.Starling;
+import starling.events.*;
+import flash.ui.Keyboard;
 
 import Character;
 import flash.sensors.Accelerometer;
@@ -11,6 +13,8 @@ class MotionEngine {
 	var aX:Float;
 	var aY:Float;
 	var aZ:Float;
+	var pX:Float;
+ 	var pY:Float;
 
 	public function new (character:Character) {
 		accl =  new Accelerometer();
@@ -18,6 +22,8 @@ class MotionEngine {
 
 		this.player = character;
 
+		aX = 0;
+		aY = 0;
 		checksupport(); //sets up event listener for motion
 
 	}
@@ -26,7 +32,19 @@ class MotionEngine {
 		if (Accelerometer.isSupported) {
 			accl.addEventListener(AccelerometerEvent.UPDATE, updateHandler);
 		} else {
-			trace(Accelerometer.isSupported);
+			player.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+			//player.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+			player.addEventListener(Event.ENTER_FRAME, function()
+				{
+					pX = player.x += aX;
+					pY = player.y += aY;
+					boundaryCheck();
+
+					Starling.juggler.tween(player, .01,
+						{
+							x: pX, y : pY,
+						});
+				});
 		}
 	}
 
@@ -36,11 +54,24 @@ class MotionEngine {
 		aY = evt.accelerationY;
 		aZ = evt.accelerationZ;
  
- 		var pX = player.x - aX * 50;
- 		var pY = player.y + (aY - .5)* 50;
+ 		pX = player.x - aX * 50;
+ 		pY = player.y + (aY - .5)* 50;
+ 		boundaryCheck();
+
+ 		//move player
+		Starling.juggler.tween(player, .01,
+		{
+			x: pX, y : pY,
+		});
 
 
- 		//keep player on screen
+		//trace(aX);
+		//trace(aY);
+		//trace(aZ);
+	}
+
+	function boundaryCheck(){
+		//keep player on screen
  		if (pX > (Starling.current.stage.stageWidth - player.width) ){
  			pX = Starling.current.stage.stageWidth - player.width;
  		}
@@ -54,17 +85,42 @@ class MotionEngine {
  			pY = 0;
  		}
 
- 		//move player
-		Starling.juggler.tween(player, .01,
-		{
-			x: pX, y : pY,
-		});
-
-
-
-
-		//trace(aX);
-		//trace(aY);
-		//trace(aZ);
 	}
+
+	function keyDownHandler(e:KeyboardEvent){
+		{
+			switch(e.keyCode)
+			{
+				case Keyboard.UP:
+					if (aY <= 0) aY -= 1;
+					else aY = -1;
+				case Keyboard.DOWN:
+					if (aY >= 0) aY += 1;
+					else aY = 1;
+				case Keyboard.LEFT:
+					if (aX <= 0) aX -= 1;
+					else aX = -1;
+				case Keyboard.RIGHT:
+					if (aX >= 0) aX += 1;
+					else aX = 1;
+			}
+		}
+	}
+
+	function keyUpHandler(e:KeyboardEvent){
+		{
+			switch(e.keyCode)
+			{
+				case Keyboard.UP:
+					 this.aY = 0;
+				case Keyboard.DOWN:
+					 this.aY = 0;
+				case Keyboard.LEFT:
+					 this.aX = 0;
+				case Keyboard.RIGHT:
+					 this.aX = 0;
+			}
+		}
+	}
+
 }
