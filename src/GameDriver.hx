@@ -53,6 +53,8 @@ class GameDriver extends Sprite {
 	
 	// Game Characters
 	var hero:Character;
+	var badBot:Character;
+	var goodBot:Character;
 	var engine:MotionEngine;
 	
 	/** Constructor */
@@ -164,7 +166,18 @@ class GameDriver extends Sprite {
 		hero.y = 450;
         addChild(hero);
         engine = new MotionEngine(hero);
-
+		
+		// Set and add badbot character placeholder 
+		badBot = new Character(2, atlas.getTextures("bad_botA"), this);
+		badBot.x = 200;
+		badBot.y = 268;
+        addChild(badBot);
+		
+		// Set and add goodbot character placeholder 
+		goodBot = new Character(3, atlas.getTextures("good_botA"), this);
+		goodBot.x = 400;
+		goodBot.y = 268;
+        addChild(goodBot);
 			
 		return;
 	}

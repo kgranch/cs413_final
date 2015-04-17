@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:bcc7232b85bdcc38787215f11c17d496:b82e71afa9a1fb0a0a2eddf702646af0:7d4d4c5ad445888e050228e156dc3d5e$ -->
+<!-- $TexturePacker:SmartUpdate:a0733a6553d2e2c6543cf63f6c0f07ab:4b15eb7a71f9e811212e4485221137dd:7d4d4c5ad445888e050228e156dc3d5e$ -->
 <TextureAtlas imagePath="sprite_atlas.png">
+    <SubTexture name="bad_botA0001" x="584" y="1169" width="493" height="276" frameX="-52" frameY="-18" frameWidth="600" frameHeight="339"/>
+    <SubTexture name="good_botA0001" x="1079" y="1169" width="493" height="276" frameX="-52" frameY="-19" frameWidth="600" frameHeight="339"/>
     <SubTexture name="health_bar0001" x="2" y="1400" width="200" height="40"/>
-    <SubTexture name="spaceship_front0001" x="1166" y="1152" width="580" height="532" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
-    <SubTexture name="spaceship_front0002" x="1166" y="2" width="583" height="556" frameX="-12" frameY="0" frameWidth="600" frameHeight="736"/>
-    <SubTexture name="spaceship_front0003" x="1166" y="560" width="580" height="590" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
+    <SubTexture name="spaceship_front0001" x="587" y="635" width="580" height="532" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
+    <SubTexture name="spaceship_front0002" x="1169" y="594" width="583" height="556" frameX="-12" frameY="0" frameWidth="600" frameHeight="736"/>
+    <SubTexture name="spaceship_front0003" x="1166" y="2" width="580" height="590" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
     <SubTexture name="spaceship_front0004" x="587" y="2" width="577" height="631" frameX="0" frameY="0" frameWidth="600" frameHeight="736"/>
     <SubTexture name="spaceship_front0005" x="2" y="701" width="580" height="697" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
     <SubTexture name="spaceship_front0006" x="2" y="2" width="583" height="697" frameX="-12" frameY="0" frameWidth="600" frameHeight="736"/>
-    <SubTexture name="spaceship_front0007" x="584" y="701" width="580" height="631" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
-    <SubTexture name="spaceship_front0008" x="2" y="701" width="580" height="697" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
-    <SubTexture name="spaceship_front0009" x="2" y="2" width="583" height="697" frameX="-12" frameY="0" frameWidth="600" frameHeight="736"/>
-    <SubTexture name="spaceship_front0010" x="584" y="701" width="580" height="631" frameX="-5" frameY="0" frameWidth="600" frameHeight="736"/>
 </TextureAtlas>
