@@ -1,0 +1,13 @@
+
+haxe \
+	-cp src \
+	-cp vendor \
+	-swf-header 1280:720:60:ffffff \
+	-swf-version 11.8 \
+	-main GameLoader \
+	-swf Game.swf \
+	-resource Assets/Levelone.tmx@levelone \
+	-swf-lib vendor/starling_1_6.swc \
+	--macro "patchTypes('vendor/starling.patch')" \
+
+/c/Users/Kyle/AppData/Local/FlashDevelop/Apps/flexairsdk/4.6.0+17.0.0/bin/adl.exe -profile tv -screensize 1280x720:1280x720 Game.xml

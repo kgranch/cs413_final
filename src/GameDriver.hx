@@ -57,6 +57,11 @@ class GameDriver extends Sprite {
 	var goodBot:Character;
 	var engine:MotionEngine;
 	
+	// Music
+	// insert vars here
+	var shoot:Sound;
+	var gameMusic:Sound;
+	
 	/** Constructor */
 	public function new() {
 		super();
@@ -93,6 +98,13 @@ class GameDriver extends Sprite {
 		// game sprite atlas
 		assets.enqueue("assets/sprite_atlas.xml");
 		assets.enqueue("assets/sprite_atlas.png");
+		
+		// game music and sounds
+		assets.enqueue("assets/sounds/fall.mp3");
+		assets.enqueue("assets/sounds/hitenemy.mp3");
+		assets.enqueue("assets/sounds/shot.mp3");
+		assets.enqueue("assets/sounds/tripleshot.mp3");
+		assets.enqueue("assets/sounds/tstmusic.mp3");
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -142,6 +154,8 @@ class GameDriver extends Sprite {
 		
 		creditsButton = installCreditsButton(765, 550);
 		addChild(creditsButton);
+		
+		GameDriver.assets.playSound("tstmusic", 0, 9999);
 	}
 
 	/** Function to be called when we are ready to start the game */
