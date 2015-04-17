@@ -74,15 +74,19 @@ class MotionEngine {
 		//keep player on screen
  		if (pX > (Starling.current.stage.stageWidth - player.width) ){
  			pX = Starling.current.stage.stageWidth - player.width;
+ 			aX = 0;
  		}
  		if (pX < 0 ){
  			pX = 0;
+ 			aX = 0;
  		}
  		if (pY > (Starling.current.stage.stageHeight - player.height) ){
  			pY = Starling.current.stage.stageHeight- player.height;
+ 			aY = 0;
  		}
  		if (pY < 0 ){
  			pY = 0;
+ 			aY = 0;
  		}
 
 	}
