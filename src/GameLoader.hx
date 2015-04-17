@@ -13,6 +13,7 @@ class GameLoader extends Sprite {
 
     function new() {
         super();
+        Starling.handleLostContext = true;
         startup = this;
         loadingBitmap = new Bitmap(new LoadingBitmapData(0, 0));
         loadingBitmap.x = 0;
