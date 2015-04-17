@@ -131,7 +131,7 @@ class Character extends MovieClipPlus {
 	
 	public function makeStand() {
 		// make hero stand
-		this.setNext(9, 3);
+		this.setNext(5, 3);
 		this.gotoAndPlay(0);
 	}
 	
