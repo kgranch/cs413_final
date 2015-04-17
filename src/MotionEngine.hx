@@ -54,8 +54,8 @@ class MotionEngine {
 		aY = evt.accelerationY;
 		aZ = evt.accelerationZ;
  
- 		pX = player.x - aX * 50;
- 		pY = player.y + (aY - .5)* 50;
+ 		pX = player.x - aX * 100;
+ 		pY = player.y + (aY - .5)* 100;
  		boundaryCheck();
 
  		//move player
