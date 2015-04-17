@@ -10,8 +10,8 @@ class MotionEngine {
 
 	public var player:Character;
 	private var accl:Accelerometer;
-	var aX:Float;
-	var aY:Float;
+	public var aX:Float;
+	public var aY:Float;
 	var aZ:Float;
 	var pX:Float;
  	var pY:Float;
