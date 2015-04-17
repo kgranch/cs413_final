@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="12">
+ <tileset firstgid="1" name="Maze" tilewidth="32" tileheight="32">
+  <tile id="0">
+   <image width="32" height="32" source="Tiles/bl_corner.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="Tiles/br_corner.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="Tiles/center.png"/>
+  </tile>
+  <tile id="3">
+   <image width="32" height="32" source="Tiles/h_wall.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="Tiles/playing.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="Tiles/tl_corner.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="Tiles/tr_corner.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="Tiles/v_wall.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="Tiles/end_bottom.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="Tiles/end_l.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="Tiles/end_r.png"/>
+  </tile>
+  <tile id="11">
+   <image width="32" height="32" source="Tiles/end_top.png"/>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="100" opacity="0.2">
+  <data encoding="base64" compression="zlib">
+   eJzt2EluwkAQQFE23P/KWbDCcg/VQ7qE35NQomDsqD7GtF8vAAAAAAAAAAAAAAAAAAAAAAAA+B3v0/8AX/TIRY9c9Fhrdp56rKVHLit61B7ErJzZdV/69Gm9pyOP636JW93j+pOY1tx656rHGnrksruH71sx78Lvtb/V9uM8maNHLnrkosd5peuqHmeUZqTHGaW563HG9TOqth6427a2nR5xrWvGdduedZwe40rnR+s+rR571GZU69GzTz3iWj1G7jPpMS4yIz320yMXPXLRI5eeGdWu53fX/NEHc7OamaP53+tdk0efmz3uU/X0qD2nx1qtz6ee50aPS58d91Aix3iqke86zo99Rmbi/Nhntsfs+WHt8e3uvd6z5ii9fvTYenys6LHi80qPDz1yafXYed8p0uMp15oV368ir4usOXu2/TX/3YM6PXKZXZ9Hj8GYVT10AACe5A9TWwez
+  </data>
+ </layer>
+ <layer name="Walls" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2o1KwzAUBtC6lSm+/wPrYMF4TdJ/EuQcKINmEbkfaZqr0wQAAAAAAAAAAAAAAAAAAAAAAAAAAAD/39z7F+AXeYxFHmOZwyd9yWMseR4y6U8eY5FHf4/v6+N13V735NFPqe7y6CfVPV8nz3u36gyulO8ZKRNZ9GMPH4s8xiKPseR5vE0/e/rzel+Yw/laPata3eVxnVYetfUij+ts6enq/15PHmNZU+N4TpwLY/nFfqm2n9PfusY+Y5zzKIxxzJZnz9p1wn6lfmLtDBKzmxtj7JPqGN9tUxb58+xeGZsmeZylVcdWDyWOyeO42jPq/hpv9VBSHvl3OWaphq0eivVxvqW9vPQuG/OwPs4Tz4KlXGKP1/q4TsxjTY+3lMe9MpdtzsqjNpdt1uQR369u2f18f5HHcWvy2Pqz2C/mUDqj1/b3uPfrKx63Z134G8h1ltZF6f8Z5HGdo+dzzrW0LuQxhpSTPRoAxvcF+pcFYg==
+  </data>
+ </layer>
+</map>
