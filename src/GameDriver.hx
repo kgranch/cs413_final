@@ -34,6 +34,7 @@ class GameDriver extends Sprite {
 	public static var assets:AssetManager;
 	
 	// Game manager
+	public var gameManager:Game;
 
 	// Keep track of the stage
 	static var globalStage:Stage = null;
@@ -166,6 +167,10 @@ class GameDriver extends Sprite {
 		mainMenuButton = installMainMenuButton(15, 15);
 		addChild(mainMenuButton);
 		
+		gameManager = new Game(this, assets);
+		gameManager.gameOver = triggerGameOver;
+		gameManager.paused = false;
+		addChild(gameManager);
 			
 		return;
 	}
