@@ -2,6 +2,7 @@ import starling.animation.Tween;
 import starling.animation.Transitions;
 import starling.display.MovieClip;
 import starling.textures.Texture;
+import starling.textures.TextureAtlas;
 import starling.display.Sprite;
 import starling.utils.AssetManager;
 import starling.display.Image;
@@ -27,17 +28,21 @@ import MovieClipPlus;
 import Tilemap;
 import Character;
 import MotionEngine;
+import Game;
 
 class GameDriver extends Sprite {
-	// Global assets manager
+	// Global assets manager and atlas
 	public static var assets:AssetManager;
+	public var atlas:TextureAtlas;
+	
+	// Game manager
+	public var gameManager:Game;
 
 	// Keep track of the stage
 	static var globalStage:Stage = null;
 	
 	// In game text objects
 	public var gameTitleText:TextField;
-	public var scoreText:TextField;
 	
 	// Interactive Buttons
 	var startButton:Button;
@@ -51,14 +56,7 @@ class GameDriver extends Sprite {
 	var tutorialScreen:Image;
 	var gameScreen:Image;
 	
-	// Game Characters
-	var hero:Character;
-	var badBot:Character;
-	var goodBot:Character;
-	var engine:MotionEngine;
-	
 	// Music
-	// insert vars here
 	var shoot:Sound;
 	var gameMusic:Sound;
 	
@@ -155,7 +153,7 @@ class GameDriver extends Sprite {
 		creditsButton = installCreditsButton(765, 550);
 		addChild(creditsButton);
 		
-		GameDriver.assets.playSound("tstmusic", 0, 9999);
+		//GameDriver.assets.playSound("tstmusic", 0, 9999);
 	}
 
 	/** Function to be called when we are ready to start the game */
@@ -171,27 +169,11 @@ class GameDriver extends Sprite {
 		mainMenuButton = installMainMenuButton(15, 15);
 		addChild(mainMenuButton);
 		
-		// Set and add game hero character
-		var atlas = GameDriver.assets.getTextureAtlas("sprite_atlas");
-		hero = new Character(1, atlas.getTextures("spaceship_front"), this);
-		hero.setHealthBar(GameDriver.assets.getTexture("health_bar0001"));
-		hero.makeStand();
-		hero.x = 535;
-		hero.y = 450;
-        addChild(hero);
-        engine = new MotionEngine(hero);
-		
-		// Set and add badbot character placeholder 
-		badBot = new Character(2, atlas.getTextures("bad_botA"), this);
-		badBot.x = 200;
-		badBot.y = 268;
-        addChild(badBot);
-		
-		// Set and add goodbot character placeholder 
-		goodBot = new Character(3, atlas.getTextures("good_botA"), this);
-		goodBot.x = 400;
-		goodBot.y = 268;
-        addChild(goodBot);
+		// Set and add game manager
+		gameManager = new Game(this, assets);
+		gameManager.gameOver = triggerGameOver;
+		gameManager.paused = false;
+		addChild(gameManager);
 			
 		return;
 	}
