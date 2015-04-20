@@ -89,10 +89,10 @@ class Character extends MovieClipPlus {
 		gameDriver.addChild(healthBar);
 	}
 	
-	public function processBotCollision(gameBot:Character){
+	public function processBotCollision(bot_type:Int){
 		var currentSpan = healthBar.getBarSpan();
 		
-		if(gameBot.botType == goodBotType){
+		if(bot_type == goodBotType){
 			//rightAnsSound.play();
 			
 			// increment's hero's score
@@ -111,7 +111,7 @@ class Character extends MovieClipPlus {
 			healthBar.animateBarSpan(currentSpan + 0.1, 0.015);
 			healthBar.flashColor(0x00FF00, 30);
 		} 
-		else if(gameBot.botType == badBotType) {
+		else if(bot_type == badBotType) {
 			//wrongAnsSound.play();
 			
 			//makeDizzy();

@@ -2,6 +2,7 @@ import starling.animation.Tween;
 import starling.animation.Transitions;
 import starling.display.MovieClip;
 import starling.textures.Texture;
+import starling.textures.TextureAtlas;
 import starling.display.Sprite;
 import starling.utils.AssetManager;
 import starling.display.Image;
@@ -30,8 +31,9 @@ import MotionEngine;
 import Game;
 
 class GameDriver extends Sprite {
-	// Global assets manager
+	// Global assets manager and atlas
 	public static var assets:AssetManager;
+	public var atlas:TextureAtlas;
 	
 	// Game manager
 	public var gameManager:Game;

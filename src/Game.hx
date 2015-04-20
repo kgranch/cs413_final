@@ -1,4 +1,5 @@
 import flash.display3D.textures.Texture;
+import starling.textures.TextureAtlas;
 import starling.display.Sprite;
 import starling.events.Event;
 import starling.events.EnterFrameEvent;
@@ -10,8 +11,9 @@ import GameDriver;
 class Game extends Sprite {
 	// LOCAL VARS
 	
-	// Global asset manager
+	// Global asset manager and atlas
 	public static var assets:AssetManager;
+	public var atlas:TextureAtlas;
 	
 	// Game driver reference
 	public var gameDriver:GameDriver;
@@ -44,12 +46,15 @@ class Game extends Sprite {
 		// Set asset manager
 		assets = game_assets;
 		
+		// Set texture atlas
+		atlas = assets.getTextureAtlas("sprite_atlas");
+		
 		this.addEventListener(Event.ADDED_TO_STAGE, function() {
 			// on enter frame, run onEnterFrame method to start the game
 			this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
 			
 			spawner = new Timer(500);
-			spawner.run = spawnAnswer;
+			spawner.run = spawnBots;
 		});
 		
 		this.addEventListener(Event.REMOVED_FROM_STAGE, function () {
@@ -58,12 +63,11 @@ class Game extends Sprite {
 		});
 		
 		// Set and add game hero character
-		var atlas = assets.getTextureAtlas("sprite_atlas");
 		hero = new Character(1, atlas.getTextures("spaceship_front"), gameDriver);
 		hero.setHealthBar(assets.getTexture("health_bar0001"));
-		hero.makeStand();
 		hero.x = 535;
 		hero.y = 450;
+		hero.makeStand();
         addChild(hero);
         engine = new MotionEngine(hero);
 		
@@ -85,7 +89,7 @@ class Game extends Sprite {
 	private function hitDetection() {
 		if(badBot != null)
 			if (badBot.bounds.intersects(hero.bounds)) {
-				hero.processBotCollision(badBot);
+				hero.processBotCollision(badBot.botType);
 				badBot.x = -100;
 				badBot.y = -100;
 				removeChild(badBot, true);
@@ -94,7 +98,7 @@ class Game extends Sprite {
 			
 		if(goodBot != null)
 			if (goodBot.bounds.intersects(hero.bounds)) {
-				hero.processBotCollision(goodBot);
+				hero.processBotCollision(goodBot.botType);
 				goodBot.x = -100;
 				goodBot.y = -100;
 				removeChild(goodBot, true);
@@ -104,14 +108,13 @@ class Game extends Sprite {
 		// work in progress...
 	}
 	
-	private function spawnAnswer() {
+	private function spawnBots() {
 		if (paused)
 			return;
 			
 		if(spawner != null)
 			spawner.stop();
 			
-		var atlas = assets.getTextureAtlas("sprite_atlas");
 		// Set and add badbot character placeholder
 		badBot = new Character(2, atlas.getTextures("bad_botA"), gameDriver);
 		badBot.x = 200;
