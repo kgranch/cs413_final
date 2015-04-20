@@ -110,23 +110,25 @@ class Character extends MovieClipPlus {
 			
 			healthBar.animateBarSpan(currentSpan + 0.1, 0.015);
 			healthBar.flashColor(0x00FF00, 30);
-		} else if(gameBot.botType == badBotType) {
+		} 
+		else if(gameBot.botType == badBotType) {
 			//wrongAnsSound.play();
-			makeDizzy();
+			
+			//makeDizzy();
 			
 			Starling.juggler.tween(this, 1, {
-					delay: 2,
-					onComplete: function() {
-						makeStand();
-				}});
+				delay: 2,
+				onComplete: function() {
+					makeStand();
+			}});
 			
-				healthBar.animateBarSpan(currentSpan - 0.3, 0.015);
-				healthBar.flashColor(0xFF0000, 30);
-				
-				if(healthBar.getBarSpan() < 0.1){
-					gameDriver.triggerGameOver(false);
-				}
+			healthBar.animateBarSpan(currentSpan - 0.3, 0.015);
+			healthBar.flashColor(0xFF0000, 30);
+			
+			if(healthBar.getBarSpan() < 0.1){
+				gameDriver.triggerGameOver(false);
 			}
+		}
 	}
 	
 	public function makeStand() {

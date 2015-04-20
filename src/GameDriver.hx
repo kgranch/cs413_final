@@ -167,6 +167,7 @@ class GameDriver extends Sprite {
 		mainMenuButton = installMainMenuButton(15, 15);
 		addChild(mainMenuButton);
 		
+		// Set and add game manager
 		gameManager = new Game(this, assets);
 		gameManager.gameOver = triggerGameOver;
 		gameManager.paused = false;
