@@ -31,9 +31,8 @@ class Game extends Sprite {
 	
 	// Game characters
 	public var hero:Character;
-	public var badBot:Character;
-	public var goodBot:Character;
-	public var botList:List<Sprite> = new List<Sprite>();
+	public var goodBotList:List<Character> = new List<Character>();
+	public var badBotList:List<Character> = new List<Character>();
 	
 	// Motion engine
 	public var engine:MotionEngine;
@@ -90,21 +89,31 @@ class Game extends Sprite {
 	
 	/** Simple hit detection */
 	private function hitDetection() {
-		if(badBot != null)
-			if (badBot.bounds.intersects(hero.bounds)) {
-				hero.processBotCollision(badBot.botType);
-				//removeChild(badBot, true);
-				//badBot = null;
-				trace("hit-bad");				
-			}
-			
-		if(goodBot != null)
-			if (goodBot.bounds.intersects(hero.bounds)) {
-				hero.processBotCollision(goodBot.botType);
-				//removeChild(goodBot, true);
-				//goodBot = null;
-				trace ("hit-good");
-			}
+		// hit detection for badbots
+		for (badBot in badBotList) {			
+			if(badBot != null)
+				if (badBot.bounds.intersects(hero.bounds)) {
+					hero.processBotCollision(badBot.botType);
+					removeChild(badBot, true);
+					badBot.x = -10000;
+					badBot.y = -10000;
+					badBot = null;
+					trace("hit-bad");				
+				}
+		}
+		
+		// hit detection for goodbots
+		for (goodBot in goodBotList) {			
+			if(goodBot != null)
+				if (goodBot.bounds.intersects(hero.bounds)) {
+					hero.processBotCollision(goodBot.botType);
+					removeChild(goodBot, true);
+					goodBot.x = -10000;
+					goodBot.y = -10000;
+					goodBot = null;
+					trace("hit-good");		
+				}
+		}
 		
 		// work in progress...
 	}
@@ -112,21 +121,43 @@ class Game extends Sprite {
 	private function spawnBots() {
 		if (paused)
 			return;
-			
+		
 		if(spawner != null)
 			spawner.stop();
-			
-		// Set and add badbot character placeholder
-		badBot = new Character(2, atlas.getTextures("bad_botA"), gameDriver);
-		badBot.x = 200;
-		badBot.y = 268;
-		addChild(badBot);
 		
-		// Set and add goodbot character placeholder
-		goodBot = new Character(3, atlas.getTextures("good_botA"), gameDriver);
-		goodBot.x = 400;
-		goodBot.y = 268;
-		addChild(goodBot);
+		// Spawn Bad bots
+		var badbotCount = 0;
+		var badbotMaxCount = 5;
+		
+		while (badbotCount < badbotMaxCount) {
+			// Set and add badbot character
+			var badBot = new Character(2, atlas.getTextures("bad_botA"), gameDriver);
+			badBot.x = Math.random()*(this.stage.stageWidth-100) + 50;
+			badBot.y = Math.random()*(this.stage.stageHeight-100) + 50;
+			addChild(badBot);
+			
+			badBotList.add(badBot);
+			
+			// increment counter
+			badbotCount++;
+		}
+		
+		// Spawn good bots
+		var goodbotCount = 0;
+		var goodbotMaxCount = 10;
+		
+		while (goodbotCount < goodbotMaxCount) {
+			// Set and add badbot character
+			var goodBot = new Character(3, atlas.getTextures("good_botA"), gameDriver);
+			goodBot.x = Math.random()*(this.stage.stageWidth-100) + 50;
+			goodBot.y = Math.random()*(this.stage.stageHeight-100) + 50;
+			addChild(goodBot);
+			
+			goodBotList.add(goodBot);
+			
+			// increment counter
+			goodbotCount++;
+		}
 		
 		// work in progress...
 	}

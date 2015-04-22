@@ -23,7 +23,7 @@ class Character extends MovieClipPlus {
 	public var healthBar:HealthBar;
 	public var heroScore:Int;
 	public var scoreText:TextField;
-	public var winningScore:Int = 2000;
+	public var winningScore:Int = 10;
 	
 	/** Constructor */
 	public function new (botType:Int, textures:flash.Vector<Texture>, gameDriver:GameDriver, fps:Int=8) {
