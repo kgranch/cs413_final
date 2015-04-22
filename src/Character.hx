@@ -26,7 +26,7 @@ class Character extends MovieClipPlus {
 	public var winningScore:Int = 10;
 	
 	/** Constructor */
-	public function new (botType:Int, textures:flash.Vector<Texture>, gameDriver:GameDriver, fps:Int=8) {
+	public function new (botType:Int, textures:flash.Vector<Texture>, gameDriver:GameDriver, fps:Int=6) {
 		super(textures, fps);
 		this.botType = botType;
 		this.gameDriver = gameDriver;
@@ -121,12 +121,12 @@ class Character extends MovieClipPlus {
 			makeDizzy();
 			
 			Starling.juggler.tween(this, 1, {
-				delay: 1,
+				delay: 2,
 				onComplete: function() {
 					makeStand();
 			}});
 			
-			healthBar.animateBarSpan(currentSpan - 0.1, 0.015);
+			healthBar.animateBarSpan(currentSpan - 0.3, 0.015);
 			healthBar.flashColor(0xFF0000, 30);
 			
 			if(healthBar.getBarSpan() < 0.1){

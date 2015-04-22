@@ -90,29 +90,27 @@ class Game extends Sprite {
 	/** Simple hit detection */
 	private function hitDetection() {
 		// hit detection for badbots
-		for (badBot in badBotList) {			
-			if(badBot != null)
-				if (badBot.bounds.intersects(hero.bounds)) {
-					hero.processBotCollision(badBot.botType);
-					removeChild(badBot, true);
-					badBot.x = -10000;
-					badBot.y = -10000;
-					badBot = null;
-					trace("hit-bad");				
-				}
+		for (badBot in badBotList) {
+			if (badBot.bounds.intersects(hero.bounds) && badBot != null) {
+				hero.processBotCollision(badBot.botType);
+				removeChild(badBot, true);
+				badBot.x = -10000;
+				badBot.y = -10000;
+				badBot = null;
+				trace("hit-bad");				
+			}
 		}
 		
 		// hit detection for goodbots
-		for (goodBot in goodBotList) {			
-			if(goodBot != null)
-				if (goodBot.bounds.intersects(hero.bounds)) {
-					hero.processBotCollision(goodBot.botType);
-					removeChild(goodBot, true);
-					goodBot.x = -10000;
-					goodBot.y = -10000;
-					goodBot = null;
-					trace("hit-good");		
-				}
+		for (goodBot in goodBotList) {
+			if (goodBot.bounds.intersects(hero.bounds) && goodBot != null) {
+				hero.processBotCollision(goodBot.botType);
+				removeChild(goodBot, true);
+				goodBot.x = -10000;
+				goodBot.y = -10000;
+				goodBot = null;
+				trace("hit-good");		
+			}
 		}
 		
 		// work in progress...
