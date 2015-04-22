@@ -63,7 +63,7 @@ class Game extends Sprite {
 		});
 		
 		// Set and add game hero character
-		hero = new Character(1, atlas.getTextures("spaceship_front"), gameDriver);
+		hero = new Character(1, atlas.getTextures("spaceship_hero"), gameDriver);
 		hero.setHealthBar(assets.getTexture("health_bar0001"));
 		hero.x = 535;
 		hero.y = 450;
