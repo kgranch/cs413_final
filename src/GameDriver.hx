@@ -103,6 +103,23 @@ class GameDriver extends Sprite {
 		assets.enqueue("assets/sounds/shot.mp3");
 		assets.enqueue("assets/sounds/tripleshot.mp3");
 		assets.enqueue("assets/sounds/tstmusic.mp3");
+		assets.enqueue("assets/sounds/marimba.mp3");
+
+		//tilemap and tiles
+		assets.enqueue("assets/Tiles/bl_corner.png");
+		assets.enqueue("assets/Tiles/br_corner.png");
+		assets.enqueue("assets/Tiles/center.png");
+		assets.enqueue("assets/Tiles/end_bottom.png");
+		assets.enqueue("assets/Tiles/end_l.png");
+		assets.enqueue("assets/Tiles/end_r.png");
+		assets.enqueue("assets/Tiles/end_top.png");
+		assets.enqueue("assets/Tiles/h_wall.png");
+		assets.enqueue("assets/Tiles/tl_corner.png");
+		assets.enqueue("assets/Tiles/tr_corner.png");
+		assets.enqueue("assets/Tiles/v_wall.png");
+		assets.enqueue("assets/Tiles/playing.png");
+		assets.enqueue("assets/Tiles/starting.png");
+
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -110,6 +127,11 @@ class GameDriver extends Sprite {
 		// Prep all asset paths
 		populateAssetManager();
 		
+		var names = assets.getTextureNames();
+		for (name in names) {
+			trace(name);
+		}
+
 		// Set the global stage to the starling stage
 		globalStage = startupStage;
 		
@@ -153,7 +175,7 @@ class GameDriver extends Sprite {
 		creditsButton = installCreditsButton(765, 550);
 		addChild(creditsButton);
 		
-		//GameDriver.assets.playSound("tstmusic", 0, 9999);
+		GameDriver.assets.playSound("marimba", 0, 9999);
 	}
 
 	/** Function to be called when we are ready to start the game */

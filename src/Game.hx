@@ -6,9 +6,12 @@ import starling.display.Sprite;
 import starling.events.Event;
 import starling.events.EnterFrameEvent;
 import starling.utils.AssetManager;
+import starling.core.Starling;
+
 
 import haxe.Timer;
 import GameDriver;
+import Tilemap;
 
 class Game extends Sprite {
 	// LOCAL VARS
@@ -36,6 +39,9 @@ class Game extends Sprite {
 	
 	// Motion engine
 	public var engine:MotionEngine;
+
+	//tilemaps
+	var levelone:Tilemap; 
 	
 	// Constructor
 	function new(game_driver:GameDriver, game_assets:AssetManager) {
@@ -49,6 +55,10 @@ class Game extends Sprite {
 		
 		// Set texture atlas
 		atlas = assets.getTextureAtlas("sprite_atlas");
+
+		levelone = new Tilemap(assets, "Maze");
+		levelone.flatten();
+		Starling.current.stage.addChild(levelone);
 		
 		this.addEventListener(Event.ADDED_TO_STAGE, function() {
 			// on enter frame, run onEnterFrame method to start the game
