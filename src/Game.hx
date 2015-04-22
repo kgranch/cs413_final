@@ -1,3 +1,5 @@
+import starling.animation.Tween;
+import starling.animation.Transitions;
 import flash.display3D.textures.Texture;
 import starling.textures.TextureAtlas;
 import starling.display.Sprite;
@@ -69,6 +71,7 @@ class Game extends Sprite {
 		hero.y = 450;
 		hero.makeStand();
         addChild(hero);
+		
         engine = new MotionEngine(hero);
 		
 		// End of constructor
@@ -90,18 +93,16 @@ class Game extends Sprite {
 		if(badBot != null)
 			if (badBot.bounds.intersects(hero.bounds)) {
 				hero.processBotCollision(badBot.botType);
-				badBot.x = -100;
-				badBot.y = -100;
-				removeChild(badBot, true);
-				trace("hit-bad");
+				//removeChild(badBot, true);
+				//badBot = null;
+				trace("hit-bad");				
 			}
 			
 		if(goodBot != null)
 			if (goodBot.bounds.intersects(hero.bounds)) {
 				hero.processBotCollision(goodBot.botType);
-				goodBot.x = -100;
-				goodBot.y = -100;
-				removeChild(goodBot, true);
+				//removeChild(goodBot, true);
+				//goodBot = null;
 				trace ("hit-good");
 			}
 		
