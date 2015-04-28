@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="64" tileheight="64" nextobjectid="1">
+ <tileset firstgid="1" name="beams" tilewidth="64" tileheight="64">
+  <tile id="0">
+   <image width="64" height="64" source="cap_bottom.png"/>
+   <animation>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="17" duration="100"/>
+    <frame tileid="17" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="1">
+   <image width="64" height="64" source="cap_left.png"/>
+  </tile>
+  <tile id="2">
+   <image width="64" height="64" source="cap_right.png"/>
+  </tile>
+  <tile id="3">
+   <image width="64" height="64" source="cap_top.png"/>
+  </tile>
+  <tile id="4">
+   <image width="64" height="64" source="center.png"/>
+  </tile>
+  <tile id="5">
+   <image width="64" height="64" source="center_lightup1.png"/>
+   <animation>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="6" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="6">
+   <image width="64" height="64" source="center_lightup2.png"/>
+  </tile>
+  <tile id="7">
+   <image width="64" height="64" source="end.png"/>
+  </tile>
+  <tile id="8">
+   <image width="64" height="64" source="floor.png"/>
+  </tile>
+  <tile id="9">
+   <image width="64" height="64" source="horizontal.png"/>
+  </tile>
+  <tile id="10">
+   <image width="64" height="64" source="l_corner.png"/>
+  </tile>
+  <tile id="11">
+   <image width="64" height="64" source="r_corner.png"/>
+  </tile>
+  <tile id="12">
+   <image width="64" height="64" source="start.png"/>
+  </tile>
+  <tile id="13">
+   <image width="64" height="64" source="tl_corner.png"/>
+  </tile>
+  <tile id="14">
+   <image width="64" height="64" source="tr_corner.png"/>
+  </tile>
+  <tile id="15">
+   <image width="64" height="64" source="vertical.png"/>
+  </tile>
+  <tile id="16">
+   <image width="64" height="64" source="centerlightup3.png"/>
+   <animation>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="17" duration="100"/>
+    <frame tileid="17" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="17">
+   <image width="64" height="64" source="centerlightup4.png"/>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0rEJwDAQBEGFdqD+23ULjvQrmIOJnxVay/7uOXzvvYyOFh0tOlp0tOho0dGio0VHi44WHS06Wk5s8v70+/pXOgp0tOho0dGio0VHi44WHS06WnS0nN4euHnrPiApRfE=
+  </data>
+ </layer>
+ <layer name="Walls" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2jsKgDAQANFUKVT83P+yKlhYbCGEjaPMgzQWSWbTWkqu6Vjbscbkc+7nDQmrXvvXhL2j2azNk+gvurMd77GDxQ4WO1jsYLGDxQ4WO1jsYLGDxQ6W6M41+EYX3fkv72HHe+xgsYPFDhY7WOxgsYPFDhY7WOxg+XPHUr7339LcPInnzvlsHc7cAR8jCYM=
+  </data>
+ </layer>
+</map>
