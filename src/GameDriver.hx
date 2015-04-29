@@ -108,20 +108,6 @@ class GameDriver extends Sprite {
 		//tilemap and tiles
 		assets.enqueue("assets/wall.png");
 
-		assets.enqueue("assets/Tiles/bl_corner.png");
-		assets.enqueue("assets/Tiles/br_corner.png");
-		assets.enqueue("assets/Tiles/center.png");
-		assets.enqueue("assets/Tiles/end_bottom.png");
-		assets.enqueue("assets/Tiles/end_l.png");
-		assets.enqueue("assets/Tiles/end_r.png");
-		assets.enqueue("assets/Tiles/end_top.png");
-		assets.enqueue("assets/Tiles/h_wall.png");
-		assets.enqueue("assets/Tiles/tl_corner.png");
-		assets.enqueue("assets/Tiles/tr_corner.png");
-		assets.enqueue("assets/Tiles/v_wall.png");
-		assets.enqueue("assets/Tiles/playing.png");
-		assets.enqueue("assets/Tiles/starting.png");
-
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -188,16 +174,16 @@ class GameDriver extends Sprite {
 		// Set and display game screen background
 		gameScreen = new Image(GameDriver.assets.getTexture("gameScreen"));
 		addChild(gameScreen);
-	
-		// Set and add mainMenu button
-		mainMenuButton = installMainMenuButton(15, 15);
-		addChild(mainMenuButton);
 		
 		// Set and add game manager
 		gameManager = new Game(this, assets);
 		gameManager.gameOver = triggerGameOver;
 		gameManager.paused = false;
 		addChild(gameManager);
+
+		// Set and add mainMenu button
+		mainMenuButton = installMainMenuButton(15, 15);
+		addChild(mainMenuButton);
 			
 		return;
 	}
