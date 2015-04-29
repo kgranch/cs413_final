@@ -45,11 +45,8 @@ $(GAME_SWF): $(SOURCES)
 	-swf-version $(SWF_VERSION) \
 	-main GameLoader \
 	-swf $(GAME_SWF) \
-	-resource assets/levelone.tmx@levelone \
-	-resource assets/leveltwo.tmx@leveltwo \
-	-resource assets/levelthree.tmx@levelthree \
-	-resource assets/levelfour.tmx@levelfour \
-	-resource assets/levelfive.tmx@levelfive \
+	-resource assets/Tiles/levelone.tmx@levelone \
+	-resource assets/Tiles/leveltwo.tmx@leveltwo \
 	-swf-lib vendor/starling_1_6.swc \
 	--macro "patchTypes('vendor/starling.patch')" \
 

@@ -106,6 +106,8 @@ class GameDriver extends Sprite {
 		assets.enqueue("assets/sounds/marimba.mp3");
 
 		//tilemap and tiles
+		assets.enqueue("assets/wall.png");
+
 		assets.enqueue("assets/Tiles/bl_corner.png");
 		assets.enqueue("assets/Tiles/br_corner.png");
 		assets.enqueue("assets/Tiles/center.png");
