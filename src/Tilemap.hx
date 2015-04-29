@@ -22,4 +22,13 @@ class Tilemap extends Sprite
       
     }
   }
+
+  public function deleteMap()
+  {
+    for (i in 0...map.length){
+      removeChild(map[i]);
+      map[i] = null;
+    }
+    map = null;
+  }
 }
