@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="64" tileheight="64" nextobjectid="1">
+ <tileset firstgid="1" name="level4" tilewidth="64" tileheight="64">
+  <tile id="0">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/center.png"/>
+   <animation>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="1">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/center_lightup1.png"/>
+  </tile>
+  <tile id="2">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/center_lightup2.png"/>
+  </tile>
+  <tile id="3">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/centerlightup3.png"/>
+   <animation>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="4" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="4">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/centerlightup4.png"/>
+  </tile>
+  <tile id="5">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/end.png"/>
+  </tile>
+  <tile id="6">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/floor.png"/>
+  </tile>
+  <tile id="7">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/horizontal.png"/>
+  </tile>
+  <tile id="8">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/l_corner.png"/>
+  </tile>
+  <tile id="9">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/r_corner.png"/>
+  </tile>
+  <tile id="10">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/start.png"/>
+  </tile>
+  <tile id="11">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/tl_corner.png"/>
+  </tile>
+  <tile id="12">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/tr_corner.png"/>
+  </tile>
+  <tile id="13">
+   <image width="64" height="64" source="../../Documents/GitHub/cs413_final/assets/Tiles/vertical.png"/>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmMEKgCAQBT3lof//306CCKKp687CGwg6BG8mwkMpiRG5uaKSO/fRUAcLdbBQBwt1sFAHC3WwUAcLdbBQBwt1sFAHC3WwUAeH9p9uxH+8PedILSPXCC2zjuSWv27EllUnUsuuC6HllINny+ltjxarzZst1ls3Wm69L8ud29+vxZ7XeXJy1/t8P7Hv3VDY8aA0FFZ8aA2FGa+3eo7YUKgdH2cX0ecDDYkDyg==
+  </data>
+ </layer>
+ <layer name="walls" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2tsKwjAQhOEIuaiief/HbQMdWGLEHrLJBOaHYFla3M/LYgg+vbazFOfp9F2epYMz9rBz3I+dzVQyn6mYzZQcXMnBlRxcycGVHFzJwZUcXMnBlRxcycGVHFzJwVN+t/vYr60jz2Z5x2sNOesIYQ5LacjX7+18KnNWyy8DmsHyz4CYLUcNiNFy1oCYLFcNiMFy14BGWloZ0AhLawPqafEyoB4WbwPytPQyIA9LbwNqaRllQC0sow3ojoXFgM5YsPtSeWakAdUs2NWaYviOxYBKC4qVe+x/pZgMKO9pd2T7rVu0ApWgChc=
+  </data>
+ </layer>
+</map>
