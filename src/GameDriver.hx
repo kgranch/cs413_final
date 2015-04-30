@@ -150,7 +150,7 @@ class GameDriver extends Sprite {
 		addChild(mainScreen);
 		
 		// Set and display game title
-		gameTitleText = installText(0,20, "Shoot Em Up!", "mainMenuFont01", 55, "center");
+		gameTitleText = installText(0,20, "Spacey Maze", "mainMenuFont01", 55, "center");
 		addChild(gameTitleText);
 		
 		// Set and add start game button
