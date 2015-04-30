@@ -183,6 +183,8 @@ class GameDriver extends Sprite {
 
 		// Set and add mainMenu button
 		mainMenuButton = installMainMenuButton(15, 15);
+		mainMenuButton.scaleX = .50;
+		mainMenuButton.scaleY = .50;
 		addChild(mainMenuButton);
 			
 		return;
@@ -211,11 +213,11 @@ class GameDriver extends Sprite {
 		tutorialText += "  2. Collect the powerups along the way.\n";
 		tutorialText += "  3. Avoid death whenever possible.\n";
 		
-		gameTutorialText = installText(100,200, tutorialText, "tutorialFont01", 25, "left", "bothDirections");
+		gameTutorialText = installText(100,350, tutorialText, "tutorialFont01", 25, "left", "bothDirections");
 		addChild(gameTutorialText);
 	
 		// Set and add mainMenu button
-		mainMenuButton = installMainMenuButton(590, 550);
+		mainMenuButton = installMainMenuButton(20, 20);
 		addChild(mainMenuButton);
 		return;
 	}
@@ -248,7 +250,7 @@ class GameDriver extends Sprite {
 		addChild(gameDesignerText);
 	
 		// Set and add mainMenu button
-		mainMenuButton = installMainMenuButton(590, 550);
+		mainMenuButton = installMainMenuButton(20, 20);
 		addChild(mainMenuButton);	
 		return;
 	}

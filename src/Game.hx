@@ -78,18 +78,12 @@ class Game extends Sprite {
 		hero = new Character(1, atlas.getTextures("spaceship_hero"), gameDriver);
 		hero.setHealthBar(assets.getTexture("health_bar0001"));
 		hero.alignPivot();
-		//hero.x = 535;
-		//hero.y = 450;
 		hero.x = Starling.current.stage.stageWidth/2;
 		hero.y = Starling.current.stage.stageHeight/2;
-		trace(hero.width);
-		trace(hero.height);
-		hero.makeMoveRight();
+		hero.makeStand();
         addChild(hero);
 		
         engine = new MotionEngine(hero,mapone);
-
-
 		
 		// End of constructor
 	}
