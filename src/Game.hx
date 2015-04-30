@@ -87,7 +87,7 @@ class Game extends Sprite {
 		hero.makeMoveRight();
         addChild(hero);
 		
-        engine = new MotionEngine(hero);
+        engine = new MotionEngine(hero,mapone);
 
 
 		

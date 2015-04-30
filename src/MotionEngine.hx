@@ -9,21 +9,29 @@ import flash.events.AccelerometerEvent;
 class MotionEngine {
 
 	public var player:Character;
+	public var map:Tilemap;
 	private var accl:Accelerometer;
 	public var aX:Float;
 	public var aY:Float;
 	var aZ:Float;
 	var pX:Float;
  	var pY:Float;
+ 	var cx:Float;
+ 	var cy:Float;
 
-	public function new (character:Character) {
+	public function new (character:Character, map:Tilemap) {
 		accl =  new Accelerometer();
 		trace(Accelerometer.isSupported);
 
 		this.player = character;
+		this.map = map;
 
 		aX = 0;
 		aY = 0;
+
+		cx = Starling.current.stage.stageWidth / 2;
+		cy = Starling.current.stage.stageHeight / 2;
+
 		checksupport(); //sets up event listener for motion
 
 	}
@@ -36,14 +44,16 @@ class MotionEngine {
 			//player.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
 			player.addEventListener(Event.ENTER_FRAME, function()
 				{
-					pX = player.x += aX;
-					pY = player.y += aY;
+					//pX = player.x += aX;
+					//pY = player.y += aY;
+					map.x -= aX;
+					map.y -= aY;
 					boundaryCheck();
 
-					Starling.juggler.tween(player, .01,
+					/*Starling.juggler.tween(player, .01,
 						{
 							x: pX, y : pY,
-						});
+						});*/
 				});
 		}
 	}
@@ -54,15 +64,19 @@ class MotionEngine {
 		aY = evt.accelerationY;
 		aZ = evt.accelerationZ;
  
- 		pX = player.x - aX * 100;
- 		pY = player.y + (aY - .5)* 100;
+ 		//pX = player.x - aX * 100;
+ 		//pY = player.y + (aY - .5)* 100;
+ 		map.x = map.x - aX * 100;
+ 		map.y = map.y + (aY - .5)* 100;
  		boundaryCheck();
 
  		//move player
+ 		/*
 		Starling.juggler.tween(player, .01,
 		{
 			x: pX, y : pY,
 		});
+*/
 
 
 		//trace(aX);
@@ -72,21 +86,35 @@ class MotionEngine {
 
 	function boundaryCheck(){
 		//keep player on screen
- 		if (pX > (Starling.current.stage.stageWidth - player.width) ){
- 			pX = Starling.current.stage.stageWidth - player.width;
+ 		if (pX > (Starling.current.stage.stageWidth - player.width/2) ){
+ 			pX = Starling.current.stage.stageWidth - player.width/2;
  			aX = 0;
  		}
  		if (pX < 0 ){
- 			pX = 0;
+ 			pX = player.width/2;
  			aX = 0;
  		}
- 		if (pY > (Starling.current.stage.stageHeight - player.height) ){
- 			pY = Starling.current.stage.stageHeight- player.height;
+ 		if (pY > (Starling.current.stage.stageHeight - player.height/2) ){
+ 			pY = Starling.current.stage.stageHeight- player.height/2;
  			aY = 0;
  		}
  		if (pY < 0 ){
- 			pY = 0;
+ 			pY = player.height/2;
  			aY = 0;
+ 		}
+
+ 		//keep camera on tilemap
+ 		if (map.x < -(6400 - Starling.current.stage.stageWidth/2)){
+ 			map.x = -(6400 - Starling.current.stage.stageWidth/2);
+ 		}
+ 		if (map.y < -(6400 - Starling.current.stage.stageHeight/2)){
+ 			map.y = -(6400 - Starling.current.stage.stageHeight/2);
+ 		}
+ 		if (map.x > (Starling.current.stage.stageWidth/2)){
+ 			map.x = Starling.current.stage.stageWidth/2;
+ 		}
+ 		if (map.y > (Starling.current.stage.stageHeight/2)){
+ 			map.y = Starling.current.stage.stageHeight/2;
  		}
 
 	}
