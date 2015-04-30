@@ -3,12 +3,15 @@ import starling.events.*;
 import flash.ui.Keyboard;
 
 import Character;
+import Game;
 import flash.sensors.Accelerometer;
 import flash.events.AccelerometerEvent;
 
 class MotionEngine {
 
 	public var player:Character;
+	public var badBot:Character;
+	public var goodBot:Character;
 	public var map:Tilemap;
 	private var accl:Accelerometer;
 	public var aX:Float;
@@ -76,6 +79,26 @@ class MotionEngine {
 		{
 			x: pX, y : pY,
 		});
+		
+		//move bat bots
+ 		/*
+		
+		for (badBot in badBotList) {
+		Starling.juggler.tween(badBot, .01,
+		{
+			x: pX, y : pY,
+		});
+		}
+		
+		//move good bots
+ 		/*
+		
+		for (goodBot in goodBotList) {
+		Starling.juggler.tween(goodBot, .01,
+		{
+			x: pX, y : pY,
+		});
+		}
 */
 
 

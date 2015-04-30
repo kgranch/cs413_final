@@ -6,6 +6,8 @@ import starling.text.TextField;
 
 import MovieClipPlus;
 import HealthBar;
+import Game; //Trying to get the bots in
+
 
 class Character extends MovieClipPlus {
 	// LOCAL VARS
