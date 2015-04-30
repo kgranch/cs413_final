@@ -154,13 +154,13 @@ class GameDriver extends Sprite {
 		addChild(gameTitleText);
 		
 		// Set and add start game button
-		startButton = installStartGameButton(415, 550);
+		startButton = installStartGameButton(940, -15);
 		addChild(startButton);
 		
-		tutorialButton = installTutorialButton(590, 550);
+		tutorialButton = installTutorialButton(815, 330);
 		addChild(tutorialButton);
 		
-		creditsButton = installCreditsButton(765, 550);
+		creditsButton = installCreditsButton(90, 430);
 		addChild(creditsButton);
 		
 		GameDriver.assets.playSound("marimba", 0, 9999);
