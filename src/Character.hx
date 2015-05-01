@@ -1,11 +1,8 @@
 ﻿import starling.core.Starling;
 import starling.display.Sprite;
 import starling.textures.Texture;
-import starling.display.Image;
-import starling.text.TextField;
 
 import MovieClipPlus;
-import HealthBar;
 import Game; //Trying to get the bots in
 
 
@@ -22,10 +19,7 @@ class Character extends MovieClipPlus {
 	
 	// Game character stats
 	public var botType:Int;
-	public var healthBar:HealthBar;
 	public var heroScore:Int;
-	public var scoreText:TextField;
-	public var winningScore:Int = 10;
 	
 	/** Constructor */
 	public function new (botType:Int, textures:flash.Vector<Texture>, gameDriver:GameDriver, fps:Int=6) {
@@ -46,95 +40,38 @@ class Character extends MovieClipPlus {
 
 	/** Create and return game hero */
 	public function initializeHero() {
+		// rescale character's width/height
 		this.scaleX = .35;
 		this.scaleY = .35;
 		
+		// add character to juggler for movie, then stop playback immediately
 		Starling.juggler.add(this);
         this.stop();
 		
 		// initialize hero's score
 		heroScore = 0;
-		
-		// Set and display score
-		scoreText = gameDriver.installText(975, 10, "Score: "+heroScore, "gameFont01", 45);
-		gameDriver.addChild(scoreText);
 	}
 
 	/** Create and return game bad bot */
 	public function initializeBadBot() {
+		// rescale character's width/height
 		this.scaleX = .35;
 		this.scaleY = .35;
 		
+		// add character to juggler for movie, then stop playback immediately
 		Starling.juggler.add(this);
         this.stop();
 	}
 
 	/** Create and return game good bot */
 	public function initializeGoodBot() {
+		// rescale character's width/height
 		this.scaleX = .35;
 		this.scaleY = .35;
 		
+		// add character to juggler for movie, then stop playback immediately
 		Starling.juggler.add(this);
         this.stop();
-	}
-	
-	public function setHealthBar(healthBarTexture:Texture) {
-		healthBar = new HealthBar(400,25,healthBarTexture);
-		healthBar.defaultColor = healthBar.color;
-		healthBar.x = gameDriver.stage.stageWidth/2 - healthBar.maxWidth/2;
-		healthBar.y = 25;
-		
-		var tHealthbar = new Image(healthBarTexture);
-		tHealthbar.width = healthBar.maxWidth;
-		tHealthbar.height = healthBar.height;
-		tHealthbar.x = healthBar.x;
-		tHealthbar.y = healthBar.y;
-		tHealthbar.alpha = 0.2;
-			
-		gameDriver.addChild(tHealthbar);
-		gameDriver.addChild(healthBar);
-	}
-	
-	public function processBotCollision(bot_type:Int){
-		var currentSpan = healthBar.getBarSpan();
-		
-		if(bot_type == goodBotType){
-			//rightAnsSound.play();
-			
-			// increment's hero's score
-			heroScore += 1;
-			
-			// if hero collects X number of goodbots, then display win game
-			if (heroScore >= winningScore){
-				gameDriver.triggerGameOver(true);
-				return;
-			}
-			
-			gameDriver.removeChild(scoreText, true);
-			scoreText = gameDriver.installText(975, 10, "Score: "+heroScore, "gameFont01", 45);
-			gameDriver.addChild(scoreText);
-			
-			healthBar.animateBarSpan(currentSpan + 0.1, 0.015);
-			healthBar.flashColor(0x00FF00, 30);
-		} 
-		else if(bot_type == badBotType) {
-			//wrongAnsSound.play();
-			
-			makeDizzy();
-			
-			Starling.juggler.tween(this, 1, {
-				delay: 2,
-				onComplete: function() {
-					makeStand();
-			}});
-			
-			healthBar.animateBarSpan(currentSpan - 0.3, 0.015);
-			healthBar.flashColor(0xFF0000, 30);
-			
-			if(healthBar.getBarSpan() < 0.1){
-				gameDriver.triggerGameOver(false);
-			}
-		}
 	}
 	
 	public function makeStand() {
