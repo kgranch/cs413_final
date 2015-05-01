@@ -41,8 +41,8 @@ class Character extends MovieClipPlus {
 	/** Create and return game hero */
 	public function initializeHero() {
 		// rescale character's width/height
-		this.scaleX = .35;
-		this.scaleY = .35;
+		this.scaleX = .3;
+		this.scaleY = .3;
 		
 		// add character to juggler for movie, then stop playback immediately
 		Starling.juggler.add(this);
