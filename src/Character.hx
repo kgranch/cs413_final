@@ -61,6 +61,10 @@ class Character extends MovieClipPlus {
 		// add character to juggler for movie, then stop playback immediately
 		Starling.juggler.add(this);
         this.stop();
+		
+		// make bot stand
+		this.setNext(3, 0);
+		this.gotoAndPlay(0);
 	}
 
 	/** Create and return game good bot */
@@ -72,6 +76,10 @@ class Character extends MovieClipPlus {
 		// add character to juggler for movie, then stop playback immediately
 		Starling.juggler.add(this);
         this.stop();
+		
+		// make bot stand
+		this.setNext(3, 0);
+		this.gotoAndPlay(0);
 	}
 	
 	public function makeStand() {
