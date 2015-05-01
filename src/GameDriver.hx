@@ -151,7 +151,6 @@ class GameDriver extends Sprite {
 		// Set and add game hero character
 		var atlas = assets.getTextureAtlas("sprite_atlas");
 		var screenHero = new Character(1, atlas.getTextures("spaceship_hero"), this);
-		//hero.alignPivot();
 		screenHero.scaleX = .75;
 		screenHero.scaleY = .75;
 		screenHero.x = Starling.current.stage.stageWidth/2 - 120;
@@ -208,19 +207,34 @@ class GameDriver extends Sprite {
 		addChild(tutorialScreen);
 		
 		// Set and display game tutorial title
-		titleText = installText(0,20, "Game Tutorial", "tutorialFont01", 55, "center");
+		titleText = installText(0,20, "Game Tutorial", "gameFont01", 55, "center");
 		addChild(titleText);
 		
 		// Set and display game designers
-		tutorialText += "This is how you play the game.\n";
-		tutorialText += "    On a computer, use arrow keys to move.\n";
-		tutorialText += "    On Android, tilt the device to move\n";
-		tutorialText += "    Avoid the gold bots. Pick up 10 purple\n    bots to win.";
-		tutorialText += "     If your health reaches zero it's game over.\n";
-
+		tutorialText += "Controls:\n";
+		tutorialText += "    Computer ->use arrow keys to move.\n\n";
+		tutorialText += "    Android device ->tilt the device to move.\n\n\n";
+		tutorialText += "Objectives:\n";
+		tutorialText += "    ->Collect 10 energy orbs      to win.\n\n";
+		tutorialText += "    ->Avoid the gold bots        as they will give you damage.\n";
+		tutorialText += "    ->If your lose all your health, it's game over.\n";
 		
-		gameTutorialText = installText(100,350, tutorialText, "tutorialFont01", 40, "left", "bothDirections");
+		gameTutorialText = installText(100,250, tutorialText, "gameFont01", 30, "left", "bothDirections");
 		addChild(gameTutorialText);
+		
+		// Set and add game hero character
+		var atlas = assets.getTextureAtlas("sprite_atlas");
+		var screengoodBot = new Character(3, atlas.getTextures("good_botA"), this);
+		screengoodBot.x = 560;
+		screengoodBot.y = 485;
+		addChild(screengoodBot);
+		
+		// Set and add game hero character
+		var atlas = assets.getTextureAtlas("sprite_atlas");
+		var screenbadBot = new Character(2, atlas.getTextures("bad_botA"), this);
+		screenbadBot.x = 495;
+		screenbadBot.y = 580;
+		addChild(screenbadBot);
 	
 		// Set and add mainMenu button
 		mainMenuButton = installMainMenuButton(20, 20);
@@ -242,7 +256,7 @@ class GameDriver extends Sprite {
 		addChild(creditsScreen);
 		
 		// Set and display game credits title
-		titleText = installText(0,20, "Game Developers", "creditsFont01", 55, "center");
+		titleText = installText(0,20, "Game Developers", "gameFont01", 55, "center");
 		addChild(titleText);
 		
 		// Set and display game designers
@@ -252,7 +266,7 @@ class GameDriver extends Sprite {
 		designerText += "Justin Liddicoat\n";
 		designerText += "Zachary Patten\n";
 		
-		gameDesignerText = installText(0,200, designerText, "creditsFont01", 35, "center");
+		gameDesignerText = installText(0,200, designerText, "gameFont01", 35, "center");
 		addChild(gameDesignerText);
 	
 		// Set and add mainMenu button
