@@ -99,6 +99,9 @@ class GameDriver extends Sprite {
 		
 		// game music and sounds
 		assets.enqueue("assets/sounds/marimba.mp3");
+		assets.enqueue("assets/sounds/badbot.mp3");
+		assets.enqueue("assets/sounds/goodbot.mp3");
+		assets.enqueue("assets/sounds/Jump6.mp3");
 
 		//tilemap and tiles
 		assets.enqueue("assets/wall.png");
@@ -171,6 +174,8 @@ class GameDriver extends Sprite {
 
 	/** Function to be called when we are ready to start the game */
 	private function startGame() {
+		GameDriver.assets.playSound("Jump6", 1, 0);
+		
 		// Clear the stage
 		this.removeChildren();
 		
@@ -195,6 +200,8 @@ class GameDriver extends Sprite {
 
 	/** Display the rules menu */
 	private function viewTutorial() {
+		GameDriver.assets.playSound("Jump6", 1, 0);
+	
 		// local vars
 		var titleText:TextField;
 		var tutorialText:String = "";
@@ -244,6 +251,8 @@ class GameDriver extends Sprite {
 	
 	/** Function to be called when looking at the credits menu*/
 	private function viewCredits() {
+		GameDriver.assets.playSound("Jump6", 1, 0);
+		
 		// local vars
 		var titleText:TextField;
 		var designerText:String = "";

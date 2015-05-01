@@ -305,7 +305,7 @@ class Game extends Sprite {
 		var currentSpan = healthBar.getBarSpan();
 		
 		if(bot_type == goodBotType){
-			//rightAnsSound.play();
+			GameDriver.assets.playSound("goodbot", 1, 0);
 			
 			// increment's hero's score
 			hero.heroScore += 1;
@@ -324,7 +324,7 @@ class Game extends Sprite {
 			healthBar.flashColor(0x00FF00, 30);
 		} 
 		else if(bot_type == badBotType) {
-			//wrongAnsSound.play();
+			GameDriver.assets.playSound("badbot", 1, 0);
 			
 			hero.makeDizzy();
 			
