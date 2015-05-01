@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:f9657534fb6df1922149dfb36f5d3a07:932737e28095952fe0303c3a7cafe220:7d4d4c5ad445888e050228e156dc3d5e$ -->
+<!-- $TexturePacker:SmartUpdate:fe3d51427ef6d754c261f6dc6e39b8a1:c921aa7a37d6db542843fbab7aa63773:7d4d4c5ad445888e050228e156dc3d5e$ -->
 <TextureAtlas imagePath="sprite_atlas.png">
-    <SubTexture name="bad_botA0001" x="587" y="1846" width="246" height="138" frameX="-26" frameY="-9" frameWidth="300" frameHeight="169"/>
-    <SubTexture name="good_botA0001" x="1172" y="1467" width="246" height="138" frameX="-27" frameY="-10" frameWidth="300" frameHeight="169"/>
-    <SubTexture name="health_bar0001" x="587" y="1986" width="200" height="40"/>
-    <SubTexture name="spaceship_hero0001" x="1176" y="2" rotated="true" width="266" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="368"/>
-    <SubTexture name="spaceship_hero0002" x="2" y="1762" width="292" height="279" frameX="-6" frameY="0" frameWidth="300" frameHeight="368"/>
-    <SubTexture name="spaceship_hero0003" x="589" y="665" rotated="true" width="300" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="368"/>
-    <SubTexture name="spaceship_hero0004" x="295" y="1055" width="289" height="320" frameX="0" frameY="0" frameWidth="300" frameHeight="368"/>
-    <SubTexture name="spaceship_hero0005" x="2" y="1064" width="291" height="347" frameX="-3" frameY="-1" frameWidth="300" frameHeight="368"/>
+    <SubTexture name="bad_botA0001" x="295" y="1337" width="246" height="138" frameX="-26" frameY="-9" frameWidth="300" frameHeight="169"/>
+    <SubTexture name="good_botA0001" x="586" y="1271" width="180" height="180"/>
+    <SubTexture name="good_botA0002" x="768" y="1271" width="180" height="180"/>
+    <SubTexture name="good_botA0003" x="950" y="1248" width="180" height="180"/>
+    <SubTexture name="good_botA0004" x="1132" y="1252" width="180" height="180"/>
+    <SubTexture name="health_bar0001" x="2" y="1413" width="200" height="40"/>
+    <SubTexture name="spaceship_hero0001" x="1471" y="617" width="291" height="266" frameX="-3" frameY="-1" frameWidth="300" frameHeight="368"/>
+    <SubTexture name="spaceship_hero0002" x="1183" y="665" rotated="true" width="279" height="292" frameX="-6" frameY="0" frameWidth="300" frameHeight="368"/>
+    <SubTexture name="spaceship_hero0003" x="881" y="665" rotated="true" width="300" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="368"/>
+    <SubTexture name="spaceship_hero0004" x="1470" y="2" width="289" height="320" frameX="0" frameY="0" frameWidth="300" frameHeight="368"/>
+    <SubTexture name="spaceship_hero0005" x="295" y="356" width="291" height="347" frameX="-3" frameY="-1" frameWidth="300" frameHeight="368"/>
     <SubTexture name="spaceship_hero0006" x="588" y="2" width="292" height="348" frameX="-6" frameY="0" frameWidth="300" frameHeight="368"/>
-    <SubTexture name="spaceship_hero0007" x="1179" y="295" rotated="true" width="266" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0008" x="868" y="1553" rotated="true" width="277" height="292" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0009" x="890" y="958" rotated="true" width="288" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0010" x="888" y="352" width="289" height="311" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0011" x="295" y="706" width="291" height="347" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0007" x="1764" y="590" rotated="true" width="266" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0008" x="1761" y="2" rotated="true" width="277" height="292" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0009" x="1471" y="324" rotated="true" width="288" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0010" x="1180" y="352" width="289" height="311" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0011" x="2" y="1064" width="291" height="347" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
     <SubTexture name="spaceship_hero0012" x="882" y="2" width="292" height="348" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0013" x="1179" y="588" rotated="true" width="266" height="291" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0014" x="1147" y="1607" width="292" height="277" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0015" x="879" y="1251" width="291" height="288" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0016" x="589" y="352" width="297" height="311" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0017" x="2" y="1413" width="291" height="347" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0018" x="295" y="356" width="292" height="348" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0019" x="1180" y="881" rotated="true" width="266" height="291" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0020" x="891" y="665" rotated="true" width="279" height="291" frameX="-7" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0021" x="588" y="958" rotated="true" width="300" height="291" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0022" x="295" y="1377" width="289" height="314" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0013" x="588" y="701" width="291" height="266" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0014" x="1761" y="296" rotated="true" width="277" height="292" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0015" x="881" y="958" width="291" height="288" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0016" x="881" y="352" width="297" height="311" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0017" x="588" y="352" width="291" height="347" frameX="-3" frameY="-1" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0018" x="1176" y="2" width="292" height="348" frameX="-6" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0019" x="1766" y="883" rotated="true" width="266" height="291" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0020" x="1174" y="959" rotated="true" width="279" height="291" frameX="-7" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0021" x="586" y="969" width="291" height="300" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0022" x="295" y="705" width="289" height="314" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
     <SubTexture name="spaceship_hero0023" x="2" y="2" width="291" height="352" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
     <SubTexture name="spaceship_hero0024" x="2" y="356" width="291" height="352" frameX="-7" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0025" x="1180" y="1174" rotated="true" width="266" height="291" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0026" x="587" y="1553" rotated="true" width="279" height="291" frameX="-7" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0027" x="586" y="1251" width="291" height="300" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
-    <SubTexture name="spaceship_hero0028" x="296" y="1693" width="289" height="314" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0025" x="1455" y="1178" width="291" height="266" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0026" x="1748" y="1178" rotated="true" width="279" height="291" frameX="-7" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0027" x="1464" y="885" rotated="true" width="300" height="291" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
+    <SubTexture name="spaceship_hero0028" x="295" y="1021" width="289" height="314" frameX="0" frameY="0" frameWidth="300" frameHeight="367"/>
     <SubTexture name="spaceship_hero0029" x="295" y="2" width="291" height="352" frameX="-2" frameY="0" frameWidth="300" frameHeight="367"/>
     <SubTexture name="spaceship_hero0030" x="2" y="710" width="291" height="352" frameX="-7" frameY="0" frameWidth="300" frameHeight="367"/>
 </TextureAtlas>
