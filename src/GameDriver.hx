@@ -98,16 +98,10 @@ class GameDriver extends Sprite {
 		assets.enqueue("assets/sprite_atlas.png");
 		
 		// game music and sounds
-		assets.enqueue("assets/sounds/fall.mp3");
-		assets.enqueue("assets/sounds/hitenemy.mp3");
-		assets.enqueue("assets/sounds/shot.mp3");
-		assets.enqueue("assets/sounds/tripleshot.mp3");
-		assets.enqueue("assets/sounds/tstmusic.mp3");
 		assets.enqueue("assets/sounds/marimba.mp3");
 
 		//tilemap and tiles
 		assets.enqueue("assets/wall.png");
-
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -163,8 +157,6 @@ class GameDriver extends Sprite {
 		
 		creditsButton = installCreditsButton(90, 430);
 		addChild(creditsButton);
-		
-		
 	}
 
 	/** Function to be called when we are ready to start the game */
@@ -213,6 +205,8 @@ class GameDriver extends Sprite {
 		tutorialText += "    On a computer, use arrow keys to move.\n";
 		tutorialText += "    On Android, tilt the device to move\n";
 		tutorialText += "    Avoid the gold bots. Pick up 10 purple\n    bots to win.";
+		tutorialText += "     If your health reaches zero it's game over.\n";
+
 		
 		gameTutorialText = installText(100,350, tutorialText, "tutorialFont01", 40, "left", "bothDirections");
 		addChild(gameTutorialText);
@@ -348,7 +342,7 @@ class GameDriver extends Sprite {
 	}
 	
 	
-	/** Install game tutorial button at (x,y) coordinates */
+	/** Install credits button at (x,y) coordinates */
 	function installCreditsButton(x:Int, y:Int) {
 		var cButton:Button;
 						
@@ -383,7 +377,4 @@ class GameDriver extends Sprite {
     private function checkCollision(texture1:Image, texture2:Rectangle):Bool {
         return (texture1.bounds.intersects(texture2));
     }
-
-    
-
 }
