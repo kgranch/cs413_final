@@ -155,15 +155,26 @@ class Game extends Sprite {
 					var dx = wpivot.x - hpivot.x;
 					var dy = wpivot.y - hpivot.y;
 
-					Starling.juggler.tween(mapone, .1,
+					//check to see if hero
+					if((dx > 0 && engine.aX > 0) || (dx < 0 && engine.aX < 0)){
+						dx = - engine.aX;
+					} 
+
+					if((dy > 0 && engine.aY > 0) || (dy < 0 && engine.aY < 0)){
+						dy = - engine.aY;
+					} 
+
+
+					/*Starling.juggler.tween(mapone, .1,
 					{
 						x: (mapone.x + dx) , y : (mapone.y + dy),
-					});
+					});*/
+
 					//mapone.x = mapone.x - (engine.aX * 1.1);
 					//mapone.y = mapone.y - (engine.aY * 1.1);
 
-					//mapone.x = mapone.x + dx;
-					//mapone.y = mapone.y + dy;
+					mapone.x = mapone.x + dx;
+					mapone.y = mapone.y + dy;
 				}else{
 					engine.aX = -engine.aX;
 					engine.aY = -engine.aY;
