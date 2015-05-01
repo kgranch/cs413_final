@@ -154,12 +154,25 @@ class GameDriver extends Sprite {
 		// Set and add game hero character
 		var atlas = assets.getTextureAtlas("sprite_atlas");
 		var screenHero = new Character(1, atlas.getTextures("spaceship_hero"), this);
-		screenHero.scaleX = .75;
-		screenHero.scaleY = .75;
-		screenHero.x = Starling.current.stage.stageWidth/2 - 120;
-		screenHero.y = Starling.current.stage.stageHeight/2 - 100;
+		screenHero.scaleX = .15;
+		screenHero.scaleY = .15;
+		screenHero.x = 970;
+		screenHero.y = 200;
 		screenHero.makeStand();
         addChild(screenHero);
+		
+		
+		Starling.juggler.tween(screenHero, 10, {
+			transition: Transitions.EASE_IN,
+			x: Starling.current.stage.stageWidth/2 - 120,
+			y: Starling.current.stage.stageHeight / 2 - 100,
+			scaleX: .75,
+			scaleY: .75,
+			onComplete: function() {
+				// do nothing
+			}
+		});
+		
 		
 		// Set and add start game button
 		startButton = installStartGameButton(940, -15);
