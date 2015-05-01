@@ -127,8 +127,12 @@ class Game extends Sprite {
 		for (wall in mapone.walls) {
 			if (wall.getBounds(wall.parent.parent).intersects(hero.getBounds(hero.parent)) && wall != null) {
 				if(Accelerometer.isSupported){
-					mapone.x = mapone.x - (engine.aX * 1.1);
-					mapone.y = mapone.y - (engine.aY * 1.1);
+					Starling.juggler.tween(mapone, .3,
+					{
+						x: (mapone.x - 2*engine.aX) , y : (mapone.y - 2*engine.aY),
+					});
+					//mapone.x = mapone.x - (engine.aX * 1.1);
+					//mapone.y = mapone.y - (engine.aY * 1.1);
 				}else{
 					engine.aX = -engine.aX;
 					engine.aY = -engine.aY;
