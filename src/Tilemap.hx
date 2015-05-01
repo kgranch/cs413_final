@@ -1,23 +1,39 @@
 import starling.core.Starling;
 import starling.display.*;
 
+import Character;
+
 class Tilemap extends Sprite
 {
 
-  public var map: Array<Image>;
+  public var walls: Array<Image>;
 
-  public function new(grid : Array<UInt>)
+  public function new(grid : Array<UInt>, driver:GameDriver)
   {
     super();
 
-    map = new Array<Image>();
+    walls = new Array<Image>();
 
     for(i in 0...grid.length){
         if (grid[i] == 1){
+          //spawn a wall tile
           var im = new Image(Game.assets.getTexture("wall"));
-          im.y = i%100 * 64; im.x = Math.floor(i/100) * 64;
-          map.push(im);
+          im.y = i%100 * 64; 
+          im.x = Math.floor(i/100) * 64;
+          walls.push(im);
           addChild(im);
+        }else if (grid[i] == 2){
+          //spawn a bad bot
+          var badBot = new Character(2, Game.assets.getTextures("bad_botA"), driver);
+          badBot.y = i%100 * 64; 
+          badBot.x = Math.floor(i/100) * 64;
+          addChild(badBot);
+        }else if (grid[i] == 3){
+          //spawn a good bot
+          var goodBot = new Character(3, Game.assets.getTextures("good_botA"), driver);
+          goodBot.y = i%100 * 64; 
+          goodBot.x = Math.floor(i/100) * 64;
+          addChild(goodBot);
         }
       
     }
@@ -25,10 +41,10 @@ class Tilemap extends Sprite
 
   public function deleteMap()
   {
-    for (i in 0...map.length){
-      removeChild(map[i]);
-      map[i] = null;
+    for (i in 0...walls.length){
+      removeChild(walls[i]);
+      walls[i] = null;
     }
-    map = null;
+    walls = null;
   }
 }
