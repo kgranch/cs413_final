@@ -8,6 +8,7 @@ import starling.events.EnterFrameEvent;
 import starling.utils.AssetManager;
 import starling.core.Starling;
 import flash.sensors.Accelerometer;
+import flash.geom.Point;
 
 import haxe.Timer;
 import GameDriver;
@@ -92,7 +93,7 @@ class Game extends Sprite {
 		// if game is paused return
 		if (paused)
 			return;
-			
+		
 		hitDetection();
 			
 		// work in progress...
@@ -101,6 +102,11 @@ class Game extends Sprite {
 	
 	/** Simple hit detection */
 	private function hitDetection() {
+		//for wall hits, get hero's position on stage
+
+		var hpivot = hero.localToGlobal(new Point(hero.pivotX, hero.pivotY));
+		var wpivot = new Point();
+
 		// hit detection for badbots
 		for (badBot in badBotList) {
 			if (badBot.bounds.intersects(hero.bounds) && badBot != null) {
@@ -127,12 +133,22 @@ class Game extends Sprite {
 		for (wall in mapone.walls) {
 			if (wall.getBounds(wall.parent.parent).intersects(hero.getBounds(hero.parent)) && wall != null) {
 				if(Accelerometer.isSupported){
-					Starling.juggler.tween(mapone, .3,
+					//get the walls position on stage
+					wpivot.setTo(wall.pivotX, wall.pivotY); 
+					wall.localToGlobal(wpivot,wpivot);
+
+					var dx = wpivot.x - hpivot.x;
+					var dy = wpivot.y - hpivot.y;
+
+					Starling.juggler.tween(mapone, .1,
 					{
-						x: (mapone.x - 2*engine.aX) , y : (mapone.y - 2*engine.aY),
+						x: (mapone.x + dx) , y : (mapone.y + dy),
 					});
 					//mapone.x = mapone.x - (engine.aX * 1.1);
 					//mapone.y = mapone.y - (engine.aY * 1.1);
+
+					//mapone.x = mapone.x + dx;
+					//mapone.y = mapone.y + dy;
 				}else{
 					engine.aX = -engine.aX;
 					engine.aY = -engine.aY;
