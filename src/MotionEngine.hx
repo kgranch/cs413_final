@@ -63,14 +63,14 @@ class MotionEngine {
 
 	function updateHandler(evt:AccelerometerEvent) {
  
-		aX = evt.accelerationX;
-		aY = evt.accelerationY;
+		aX = evt.accelerationX * 100;
+		aY = - (evt.accelerationY - .5) * 100;
 		aZ = evt.accelerationZ;
  
  		//pX = player.x - aX * 100;
  		//pY = player.y + (aY - .5)* 100;
- 		map.x = map.x - aX * 100;
- 		map.y = map.y + (aY - .5)* 100;
+ 		map.x = map.x + aX ;
+ 		map.y = map.y + aY;
  		boundaryCheck();
 
  		//move player

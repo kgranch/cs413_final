@@ -57,7 +57,7 @@ class Game extends Sprite {
 		atlas = assets.getTextureAtlas("sprite_atlas");
 
 		//create tilemap
-        mapone = new Tilemap(levels.levelone);
+        mapone = new Tilemap(levels.levelone, gameDriver);
 		addChild(mapone);
 		
 		this.addEventListener(Event.ADDED_TO_STAGE, function() {
@@ -119,6 +119,14 @@ class Game extends Sprite {
 				goodBot.x = -10000;
 				goodBot.y = -10000;
 				goodBot = null;	
+			}
+		}
+
+		//wall collision detection
+		for (wall in mapone.walls) {
+			if (wall.getBounds(wall.parent.parent).intersects(hero.getBounds(hero.parent)) && wall != null) {
+				mapone.x = mapone.x - engine.aX;
+				mapone.y = mapone.y - engine.aY;
 			}
 		}
 		
