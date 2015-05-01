@@ -24,7 +24,6 @@ class MotionEngine {
 
 	public function new (character:Character, map:Tilemap) {
 		accl =  new Accelerometer();
-		trace(Accelerometer.isSupported);
 
 		this.player = character;
 		this.map = map;

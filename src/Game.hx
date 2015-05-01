@@ -7,6 +7,7 @@ import starling.events.Event;
 import starling.events.EnterFrameEvent;
 import starling.utils.AssetManager;
 import starling.core.Starling;
+import flash.sensors.Accelerometer;
 
 import haxe.Timer;
 import GameDriver;
@@ -125,8 +126,15 @@ class Game extends Sprite {
 		//wall collision detection
 		for (wall in mapone.walls) {
 			if (wall.getBounds(wall.parent.parent).intersects(hero.getBounds(hero.parent)) && wall != null) {
-				mapone.x = mapone.x - engine.aX;
-				mapone.y = mapone.y - engine.aY;
+				if(Accelerometer.isSupported){
+					mapone.x = mapone.x - (engine.aX * 1.1);
+					mapone.y = mapone.y - (engine.aY * 1.1);
+				}else{
+					engine.aX = -engine.aX;
+					engine.aY = -engine.aY;
+				}
+
+				
 			}
 		}
 		
