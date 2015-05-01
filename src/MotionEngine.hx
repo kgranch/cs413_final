@@ -38,9 +38,16 @@ class MotionEngine {
 
 	}
 
+	public function moveEngine(evt:EnterFrameEvent){
+		map.x = map.x + aX ;
+ 		map.y = map.y + aY;
+ 		boundaryCheck();
+	}
+
 	function checksupport() {
 		if (Accelerometer.isSupported) {
 			accl.addEventListener(AccelerometerEvent.UPDATE, updateHandler);
+			player.addEventListener(Event.ENTER_FRAME, moveEngine);
 		} else {
 			player.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
 			//player.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
@@ -68,42 +75,7 @@ class MotionEngine {
  
  		//pX = player.x - aX * 100;
  		//pY = player.y + (aY - .5)* 100;
- 		map.x = map.x + aX ;
- 		map.y = map.y + aY;
- 		boundaryCheck();
-
- 		//move player
- 		/*
-		Starling.juggler.tween(player, .01,
-		{
-			x: pX, y : pY,
-		});
-		
-		//move bat bots
- 		/*
-		
-		for (badBot in badBotList) {
-		Starling.juggler.tween(badBot, .01,
-		{
-			x: pX, y : pY,
-		});
-		}
-		
-		//move good bots
- 		/*
-		
-		for (goodBot in goodBotList) {
-		Starling.juggler.tween(goodBot, .01,
-		{
-			x: pX, y : pY,
-		});
-		}
-*/
-
-
-		//trace(aX);
-		//trace(aY);
-		//trace(aZ);
+ 		
 	}
 
 	function boundaryCheck(){

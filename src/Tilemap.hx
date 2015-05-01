@@ -20,6 +20,7 @@ class Tilemap extends Sprite
           var im = new Image(Game.assets.getTexture("wall"));
           im.y = i%100 * 64; 
           im.x = Math.floor(i/100) * 64;
+          im.alignPivot();
           walls.push(im);
           addChild(im);
         }else if (grid[i] == 2){
