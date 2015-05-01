@@ -68,10 +68,37 @@ class MotionEngine {
 	}
 
 	function updateHandler(evt:AccelerometerEvent) {
+ 	function updateHandler(evt:AccelerometerEvent) {
  
-		aX = evt.accelerationX * 100;
-		aY = - (evt.accelerationY - .5) * 100;
-		aZ = evt.accelerationZ;
+			aX = evt.accelerationX * 100;
+			if (aX > 40.0){
+				aX = 40.0;
+			}
+			else if (aX < -40.0){
+				aX = 40.0;
+			}
+		
+			aY = - (evt.accelerationY - .5) * 100;
+			if (aY > 40.0){
+				aY = 40.0;
+			}
+			else if (aY < -40.0){
+				aY = 40.0;
+			}
+			
+			aZ = evt.accelerationZ;
+			if (aZ > 40.0){
+				aZ = 40.0;
+			}
+			else if (aZ < -40.0){
+				aZ = 40.0;
+			}
+			
+ 
+ 		//pX = player.x - aX * 100;
+ 		//pY = player.y + (aY - .5)* 100;
+ 		
+	}
  
  		//pX = player.x - aX * 100;
  		//pY = player.y + (aY - .5)* 100;
