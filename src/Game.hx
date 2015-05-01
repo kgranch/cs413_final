@@ -20,6 +20,13 @@ import HealthBar;
 
 class Game extends Sprite {
 	// LOCAL VARS
+
+	//Raidians for collision detection
+	static var PI14 = Math.PI / 4;
+	static var PI34 = 3 * Math.PI / 4;
+	static var PI54 = 3 * Math.PI / 4;
+	static var PI74 = 3 * Math.PI / 4;
+
 	
 	// Global asset manager and atlas
 	public static var assets:AssetManager;
@@ -121,10 +128,12 @@ class Game extends Sprite {
 
 		var hpivot = hero.localToGlobal(new Point(hero.pivotX, hero.pivotY));
 		var wpivot = new Point();
+		var collisionVector = new Point();
+		var unitVector = new Point(1,0);
 
 		// hit detection for badbots
-		for (badBot in badBotList) {
-			if (badBot.bounds.intersects(hero.bounds) && badBot != null) {
+		for (badBot in mapone.badBotList) {
+			if (badBot.getBounds(badBot.parent.parent).intersects(hero.getBounds(hero.parent)) && badBot != null) {
 				processBotCollision(badBot.botType);
 				removeChild(badBot, true);
 				badBot.x = -10000;
@@ -134,8 +143,8 @@ class Game extends Sprite {
 		}
 		
 		// hit detection for goodbots
-		for (goodBot in goodBotList) {
-			if (goodBot.bounds.intersects(hero.bounds) && goodBot != null) {
+		for (goodBot in mapone.goodBotList) {
+			if (goodBot.getBounds(goodBot.parent.parent).intersects(hero.getBounds(hero.parent)) && goodBot != null) {
 				processBotCollision(goodBot.botType);
 				removeChild(goodBot, true);
 				goodBot.x = -10000;
@@ -144,6 +153,7 @@ class Game extends Sprite {
 			}
 		}
 
+/*
 		//wall collision detection
 		for (wall in mapone.walls) {
 			if (wall.getBounds(wall.parent.parent).intersects(hero.getBounds(hero.parent)) && wall != null) {
@@ -152,29 +162,33 @@ class Game extends Sprite {
 					wpivot.setTo(wall.pivotX, wall.pivotY); 
 					wall.localToGlobal(wpivot,wpivot);
 
-					var dx = wpivot.x - hpivot.x;
-					var dy = wpivot.y - hpivot.y;
-
-					//check to see if hero
-					if((dx > 0 && engine.aX > 0) || (dx < 0 && engine.aX < 0)){
-						dx = - engine.aX;
-					} 
-
-					if((dy > 0 && engine.aY > 0) || (dy < 0 && engine.aY < 0)){
-						dy = - engine.aY;
-					} 
+					var dx = hpivot.x - wpivot.x;
+					trace(dx);
+					var dy = hpivot.y - wpivot.y;
+					var angle = Math.atan2(dy,dx);
+					trace(angle);
 
 
-					/*Starling.juggler.tween(mapone, .1,
-					{
-						x: (mapone.x + dx) , y : (mapone.y + dy),
-					});*/
+					//check to see if hero is above/below/left/right of wall
+					if(angle < PI14 || angle >= PI74){
+						//hero hit wall from right
+						mapone.x -= dx;
+						
+					} else if (angle >= PI14 && angle < PI34){
+						//hero hit wall from above
+						mapone.y -= dy;
 
-					//mapone.x = mapone.x - (engine.aX * 1.1);
-					//mapone.y = mapone.y - (engine.aY * 1.1);
+					} else if (angle >= PI34 && angle < PI74){
+						//hero hit wall from left
+						mapone.x -= dx;
 
-					mapone.x = mapone.x + dx;
-					mapone.y = mapone.y + dy;
+					} else if (angle >= PI34 && angle < PI74){
+						//hero hit wall from above
+						mapone.y -= dy;
+
+					}
+
+
 				}else{
 					engine.aX = -engine.aX;
 					engine.aY = -engine.aY;
@@ -182,7 +196,7 @@ class Game extends Sprite {
 
 				
 			}
-		}
+		}*/
 		
 		// work in progress...
 	}

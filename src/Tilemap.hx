@@ -7,6 +7,8 @@ class Tilemap extends Sprite
 {
 
   public var walls: Array<Image>;
+  public var goodBotList:List<Character> = new List<Character>();
+  public var badBotList:List<Character> = new List<Character>();
 
   public function new(grid : Array<UInt>, driver:GameDriver)
   {
@@ -28,12 +30,14 @@ class Tilemap extends Sprite
           var badBot = new Character(2, Game.assets.getTextures("bad_botA"), driver);
           badBot.y = i%100 * 64; 
           badBot.x = Math.floor(i/100) * 64;
+          badBotList.add(badBot);
           addChild(badBot);
         }else if (grid[i] == 3){
           //spawn a good bot
           var goodBot = new Character(3, Game.assets.getTextures("good_botA"), driver);
           goodBot.y = i%100 * 64; 
           goodBot.x = Math.floor(i/100) * 64;
+          goodBotList.add(goodBot);
           addChild(goodBot);
         }
       
