@@ -98,16 +98,10 @@ class GameDriver extends Sprite {
 		assets.enqueue("assets/sprite_atlas.png");
 		
 		// game music and sounds
-		assets.enqueue("assets/sounds/fall.mp3");
-		assets.enqueue("assets/sounds/hitenemy.mp3");
-		assets.enqueue("assets/sounds/shot.mp3");
-		assets.enqueue("assets/sounds/tripleshot.mp3");
-		assets.enqueue("assets/sounds/tstmusic.mp3");
 		assets.enqueue("assets/sounds/marimba.mp3");
 
 		//tilemap and tiles
 		assets.enqueue("assets/wall.png");
-
 	}
 
 	/** Function called from the initial driver, sets up the root class */
@@ -163,8 +157,6 @@ class GameDriver extends Sprite {
 		
 		creditsButton = installCreditsButton(90, 430);
 		addChild(creditsButton);
-		
-		
 	}
 
 	/** Function to be called when we are ready to start the game */
@@ -210,9 +202,10 @@ class GameDriver extends Sprite {
 		
 		// Set and display game designers
 		tutorialText += "This is how you play the game.\n";
-		tutorialText += "  1. Use the arrow keys to move the character and Space to jump.\n";
+		tutorialText += "  1. Use the arrow keys to move the character.\n";
 		tutorialText += "  2. Collect the powerups along the way.\n";
-		tutorialText += "  3. Avoid death whenever possible.\n";
+		tutorialText += "  3. Avoid enemies.\n";
+		tutorialText += "  4. If your health reaches zero it's game over.\n";
 		
 		gameTutorialText = installText(100,350, tutorialText, "tutorialFont01", 25, "left", "bothDirections");
 		addChild(gameTutorialText);
@@ -348,7 +341,7 @@ class GameDriver extends Sprite {
 	}
 	
 	
-	/** Install game tutorial button at (x,y) coordinates */
+	/** Install credits button at (x,y) coordinates */
 	function installCreditsButton(x:Int, y:Int) {
 		var cButton:Button;
 						
@@ -383,7 +376,4 @@ class GameDriver extends Sprite {
     private function checkCollision(texture1:Image, texture2:Rectangle):Bool {
         return (texture1.bounds.intersects(texture2));
     }
-
-    
-
 }

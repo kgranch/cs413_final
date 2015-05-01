@@ -1,5 +1,5 @@
-FLEX_SDK = C:/FlexSDK
-ANDROID_SDK = C:/sdk
+FLEX_SDK = C:/flexsdk
+ANDROID_SDK = C:/android-sdk
 
 SIGN_CERT = sign.pfx
 SIGN_PWD = abc123
@@ -45,8 +45,6 @@ $(GAME_SWF): $(SOURCES)
 	-swf-version $(SWF_VERSION) \
 	-main GameLoader \
 	-swf $(GAME_SWF) \
-	-resource assets/Tiles/levelone.tmx@levelone \
-	-resource assets/Tiles/leveltwo.tmx@leveltwo \
 	-swf-lib vendor/starling_1_6.swc \
 	--macro "patchTypes('vendor/starling.patch')" \
 

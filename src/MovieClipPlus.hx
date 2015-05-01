@@ -79,5 +79,5 @@ class MovieClipPlus extends MovieClip {
 //
 // var atlas = Root.assets.getTextureAtlas("assets");
 // var hero = new MovieClipPlus(atlas.getTextures("hero"), 7);
-// // After frame 3 goto frame 0 creating a loop
+// After frame 3 goto frame 0 creating a loop
 // hero.setNext(3, 0);

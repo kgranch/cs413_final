@@ -10,7 +10,7 @@ class BackgroundLayer extends Sprite{
 	private var image2:Image;
 
 	//to create a layer, give the constructor a texture, a speed, and
-	//whether or not the layer is alighned with the top or the bottom of the screen
+	//whether or not the layer is aligned with the top or the bottom of the screen
 	public function new(texture:Texture, speed:Float, top:Bool=true){
 		super();
 		this.speed = speed;

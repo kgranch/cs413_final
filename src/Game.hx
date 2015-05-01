@@ -85,8 +85,8 @@ class Game extends Sprite {
 			// on enter frame, run onEnterFrame method to start the game
 			this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
 			
-			spawner = new Timer(500);
-			spawner.run = spawnBots;
+			//spawner = new Timer(500);
+			//spawner.run = spawnBots;
 		});
 		
 		this.addEventListener(Event.REMOVED_FROM_STAGE, function () {
