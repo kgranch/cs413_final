@@ -210,11 +210,11 @@ class GameDriver extends Sprite {
 		
 		// Set and display game designers
 		tutorialText += "This is how you play the game.\n";
-		tutorialText += "  1. Use the arrow keys to move the character and Space to jump.\n";
-		tutorialText += "  2. Collect the powerups along the way.\n";
-		tutorialText += "  3. Avoid death whenever possible.\n";
+		tutorialText += "    On a computer, use arrow keys to move.\n";
+		tutorialText += "    On Android, tilt the device to move\n";
+		tutorialText += "    Avoid the gold bots. Pick up 10 purple\n    bots to win.";
 		
-		gameTutorialText = installText(100,350, tutorialText, "tutorialFont01", 25, "left", "bothDirections");
+		gameTutorialText = installText(100,350, tutorialText, "tutorialFont01", 40, "left", "bothDirections");
 		addChild(gameTutorialText);
 	
 		// Set and add mainMenu button

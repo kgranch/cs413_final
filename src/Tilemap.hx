@@ -20,14 +20,15 @@ class Tilemap extends Sprite
         if (grid[i] == 1){
           //spawn a wall tile
           var im = new Image(Game.assets.getTexture("wall"));
+          im.alignPivot();
           im.y = i%100 * 64; 
           im.x = Math.floor(i/100) * 64;
-          im.alignPivot();
           walls.push(im);
           addChild(im);
         }else if (grid[i] == 2){
           //spawn a bad bot
           var badBot = new Character(2, Game.assets.getTextures("bad_botA"), driver);
+          badBot.alignPivot();
           badBot.y = i%100 * 64; 
           badBot.x = Math.floor(i/100) * 64;
           badBotList.add(badBot);
@@ -35,6 +36,7 @@ class Tilemap extends Sprite
         }else if (grid[i] == 3){
           //spawn a good bot
           var goodBot = new Character(3, Game.assets.getTextures("good_botA"), driver);
+          goodBot.alignPivot();
           goodBot.y = i%100 * 64; 
           goodBot.x = Math.floor(i/100) * 64;
           goodBotList.add(goodBot);

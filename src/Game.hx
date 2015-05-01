@@ -85,13 +85,6 @@ class Game extends Sprite {
 			// on enter frame, run onEnterFrame method to start the game
 			this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
 			
-			spawner = new Timer(500);
-			spawner.run = spawnBots;
-		});
-		
-		this.addEventListener(Event.REMOVED_FROM_STAGE, function () {
-			if(spawner != null)
-				spawner.stop();
 		});
 
 		// Set and add game hero character
@@ -153,22 +146,31 @@ class Game extends Sprite {
 			}
 		}
 
-/*
+
 		//wall collision detection
 		for (wall in mapone.walls) {
 			if (wall.getBounds(wall.parent.parent).intersects(hero.getBounds(hero.parent)) && wall != null) {
 				if(Accelerometer.isSupported){
+
+					/*
 					//get the walls position on stage
 					wpivot.setTo(wall.pivotX, wall.pivotY); 
 					wall.localToGlobal(wpivot,wpivot);
 
 					var dx = hpivot.x - wpivot.x;
-					trace(dx);
 					var dy = hpivot.y - wpivot.y;
 					var angle = Math.atan2(dy,dx);
-					trace(angle);
+
+					if(dx > 0) dx -= wall.width;
+					//else dx += wall.width;
+					if(dy > 0) dy -= wall.height;
+					//else dy += wall.height;
 
 
+					mapone.x = mapone.x + dx;
+					mapone.y = mapone.y + dy;
+
+					
 					//check to see if hero is above/below/left/right of wall
 					if(angle < PI14 || angle >= PI74){
 						//hero hit wall from right
@@ -187,6 +189,29 @@ class Game extends Sprite {
 						mapone.y -= dy;
 
 					}
+					*/
+					
+					//get the walls position on stage
+					wpivot.setTo(wall.pivotX, wall.pivotY); 
+					wall.localToGlobal(wpivot,wpivot);
+
+					var dx = wpivot.x - hpivot.x;
+					var dy = wpivot.y - hpivot.y;
+
+					//check to see if hero
+					if((dx > 0 && engine.aX > 0) || (dx < 0 && engine.aX < 0)){
+						dx = - engine.aX;
+					} 
+
+					if((dy > 0 && engine.aY > 0) || (dy < 0 && engine.aY < 0)){
+						dy = - engine.aY;
+					} 
+
+					if(dx > 0) dx -= hero.width;
+					if(dy > 0) dy -= hero.width;
+
+					mapone.x = mapone.x + dx;
+					mapone.y = mapone.y + dy;
 
 
 				}else{
@@ -196,7 +221,7 @@ class Game extends Sprite {
 
 				
 			}
-		}*/
+		}
 		
 		// work in progress...
 	}

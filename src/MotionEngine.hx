@@ -67,42 +67,33 @@ class MotionEngine {
 		}
 	}
 
-	function updateHandler(evt:AccelerometerEvent) {
+
  	function updateHandler(evt:AccelerometerEvent) {
  
 			aX = evt.accelerationX * 100;
-			if (aX > 40.0){
-				aX = 40.0;
+			if (aX > 30.0){
+				aX = 30.0;
 			}
-			else if (aX < -40.0){
-				aX = 40.0;
+			else if (aX < -30.0){
+				aX = 30.0;
 			}
 		
 			aY = - (evt.accelerationY - .5) * 100;
-			if (aY > 40.0){
-				aY = 40.0;
+			if (aY > 30.0){
+				aY = 30.0;
 			}
-			else if (aY < -40.0){
-				aY = 40.0;
+			else if (aY < -30.0){
+				aY = 30.0;
 			}
 			
 			aZ = evt.accelerationZ;
-			if (aZ > 40.0){
-				aZ = 40.0;
+			if (aZ > 30.0){
+				aZ = 30.0;
 			}
-			else if (aZ < -40.0){
-				aZ = 40.0;
+			else if (aZ < -30.0){
+				aZ = 30.0;
 			}
-			
- 
- 		//pX = player.x - aX * 100;
- 		//pY = player.y + (aY - .5)* 100;
- 		
-	}
- 
- 		//pX = player.x - aX * 100;
- 		//pY = player.y + (aY - .5)* 100;
- 		
+
 	}
 
 	function boundaryCheck(){
@@ -125,11 +116,11 @@ class MotionEngine {
  		}
 
  		//keep camera on tilemap
- 		if (map.x < -(6400 - Starling.current.stage.stageWidth/2)){
- 			map.x = -(6400 - Starling.current.stage.stageWidth/2);
+ 		if (map.x < -(6400 - Starling.current.stage.stageWidth/2 - player.width)){
+ 			map.x = -(6400 - Starling.current.stage.stageWidth/2 - player.width);
  		}
- 		if (map.y < -(6400 - Starling.current.stage.stageHeight/2)){
- 			map.y = -(6400 - Starling.current.stage.stageHeight/2);
+ 		if (map.y < -(6400 - Starling.current.stage.stageHeight/2 - player.height)){
+ 			map.y = -(6400 - Starling.current.stage.stageHeight/2 - player.height);
  		}
  		if (map.x > (Starling.current.stage.stageWidth/2)){
  			map.x = Starling.current.stage.stageWidth/2;
