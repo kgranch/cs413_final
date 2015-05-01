@@ -74,7 +74,6 @@ class Game extends Sprite {
 		});
 
 		// Set and add game hero character
-		trace(atlas.getTextures("spaceship_hero"));
 		hero = new Character(1, atlas.getTextures("spaceship_hero"), gameDriver);
 		hero.setHealthBar(assets.getTexture("health_bar0001"));
 		hero.alignPivot();
@@ -108,8 +107,7 @@ class Game extends Sprite {
 				removeChild(badBot, true);
 				badBot.x = -10000;
 				badBot.y = -10000;
-				badBot = null;
-				trace("hit-bad");				
+				badBot = null;			
 			}
 		}
 		
@@ -120,8 +118,7 @@ class Game extends Sprite {
 				removeChild(goodBot, true);
 				goodBot.x = -10000;
 				goodBot.y = -10000;
-				goodBot = null;
-				trace("hit-good");		
+				goodBot = null;	
 			}
 		}
 		
