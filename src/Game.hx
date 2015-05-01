@@ -9,10 +9,14 @@ import starling.utils.AssetManager;
 import starling.core.Starling;
 import flash.sensors.Accelerometer;
 import flash.geom.Point;
+import starling.text.TextField;
+import starling.display.Image;
+
 
 import haxe.Timer;
 import GameDriver;
 import Tilemap;
+import HealthBar;
 
 class Game extends Sprite {
 	// LOCAL VARS
@@ -32,11 +36,19 @@ class Game extends Sprite {
 	
 	// Misc
 	public var paused:Bool = false;
+	public var scoreText:TextField;
+	public var winningScore:Int = 10;
+	public var healthBar:HealthBar;
 	
 	// Game characters
 	public var hero:Character;
 	public var goodBotList:List<Character> = new List<Character>();
 	public var badBotList:List<Character> = new List<Character>();
+	
+	// Bot types
+	public var heroBotType:Int = 1;
+	public var badBotType:Int = 2;
+	public var goodBotType:Int = 3;
 	
 	// Motion engine
 	public var engine:MotionEngine;
@@ -77,12 +89,15 @@ class Game extends Sprite {
 
 		// Set and add game hero character
 		hero = new Character(1, atlas.getTextures("spaceship_hero"), gameDriver);
-		hero.setHealthBar(assets.getTexture("health_bar0001"));
-		hero.alignPivot();
+		//hero.alignPivot();
 		hero.x = Starling.current.stage.stageWidth/2;
 		hero.y = Starling.current.stage.stageHeight/2;
 		hero.makeStand();
         addChild(hero);
+		
+		// set the healthbar and scoreboard
+		setHealthBar();
+		setScoreBoard();
 		
         engine = new MotionEngine(hero,mapone);
 		
@@ -110,7 +125,7 @@ class Game extends Sprite {
 		// hit detection for badbots
 		for (badBot in badBotList) {
 			if (badBot.bounds.intersects(hero.bounds) && badBot != null) {
-				hero.processBotCollision(badBot.botType);
+				processBotCollision(badBot.botType);
 				removeChild(badBot, true);
 				badBot.x = -10000;
 				badBot.y = -10000;
@@ -121,7 +136,7 @@ class Game extends Sprite {
 		// hit detection for goodbots
 		for (goodBot in goodBotList) {
 			if (goodBot.bounds.intersects(hero.bounds) && goodBot != null) {
-				hero.processBotCollision(goodBot.botType);
+				processBotCollision(goodBot.botType);
 				removeChild(goodBot, true);
 				goodBot.x = -10000;
 				goodBot.y = -10000;
@@ -203,5 +218,80 @@ class Game extends Sprite {
 		}
 		
 		// work in progress...
+	}
+	
+	public function setScoreBoard() {
+		// Set and display score
+		scoreText = gameDriver.installText(975, 10, "Score: "+hero.heroScore, "gameFont01", 45);
+		addChild(scoreText);
+		
+		return;
+	}
+	
+	public function setHealthBar() {
+		// local vars
+		var healthBarTexture = assets.getTexture("health_bar0001");
+		var tHealthbar;
+		
+		healthBar = new HealthBar(400, 25, healthBarTexture);
+		healthBar.defaultColor = healthBar.color;
+		healthBar.x = gameDriver.stage.stageWidth/2 - healthBar.maxWidth/2;
+		healthBar.y = 25;
+		
+		tHealthbar = new Image(healthBarTexture);
+		tHealthbar.width = healthBar.maxWidth;
+		tHealthbar.height = healthBar.height;
+		tHealthbar.x = healthBar.x;
+		tHealthbar.y = healthBar.y;
+		tHealthbar.alpha = 0.2;
+			
+		addChild(tHealthbar);
+		addChild(healthBar);
+		
+		return;
+	}
+	
+	public function processBotCollision(bot_type:Int){
+		var currentSpan = healthBar.getBarSpan();
+		
+		if(bot_type == goodBotType){
+			//rightAnsSound.play();
+			
+			// increment's hero's score
+			hero.heroScore += 1;
+			
+			// if hero collects X number of goodbots, then display win game
+			if (hero.heroScore >= winningScore){
+				gameDriver.triggerGameOver(true);
+				return;
+			}
+			
+			removeChild(scoreText, true);
+			scoreText = gameDriver.installText(975, 10, "Score: "+hero.heroScore, "gameFont01", 45);
+			addChild(scoreText);
+			
+			healthBar.animateBarSpan(currentSpan + 0.1, 0.015);
+			healthBar.flashColor(0x00FF00, 30);
+		} 
+		else if(bot_type == badBotType) {
+			//wrongAnsSound.play();
+			
+			hero.makeDizzy();
+			
+			Starling.juggler.tween(hero, 1, {
+				delay: 2,
+				onComplete: function() {
+					hero.makeStand();
+			}});
+			
+			healthBar.animateBarSpan(currentSpan - 0.3, 0.015);
+			healthBar.flashColor(0xFF0000, 30);
+			
+			if(healthBar.getBarSpan() < 0.1){
+				gameDriver.triggerGameOver(false);
+			}
+		}
+		
+		return;
 	}
 }
