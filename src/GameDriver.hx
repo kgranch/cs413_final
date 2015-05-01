@@ -135,6 +135,7 @@ class GameDriver extends Sprite {
 					alpha: 0,
 					onComplete: function() {
 					startup.removeChild(startup.loadingBitmap);
+					GameDriver.assets.playSound("marimba", 0, 9999);
 				}});
 			}
 		});
@@ -163,7 +164,7 @@ class GameDriver extends Sprite {
 		creditsButton = installCreditsButton(90, 430);
 		addChild(creditsButton);
 		
-		GameDriver.assets.playSound("marimba", 0, 9999);
+		
 	}
 
 	/** Function to be called when we are ready to start the game */
