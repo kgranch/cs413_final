@@ -6,7 +6,8 @@ haxe \
 	-swf-version 11.8 \
 	-main GameLoader \
 	-swf Game.swf \
-	-resource Assets/Levelone.tmx@levelone \
+	-resource Assets/Tiles/Levelone.tmx@levelone \
+	-resource Assets/Tiles/Leveltwo.tmx@leveltwo \
 	-swf-lib vendor/starling_1_6.swc \
 	--macro "patchTypes('vendor/starling.patch')" \
 
